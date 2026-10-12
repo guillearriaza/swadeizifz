@@ -14,9 +14,13 @@ This repository hosts:
 1. **The Campaign Supplement (`Isthmus Free Zone.pdf`):** A 7-session operational corporate campaign module with complete lore, GM guidance, NPC stat blocks, homebrew Cyber Psychosis rules, and 20 visual character sheets.
 2. **Interactive Character Sheet Web App:** A lightweight, single-page Google Apps Script web application powered directly by a Google Sheets relational database to inspect and run operatives at the table.
 
+The pdf can be accessed directly here:
+https://guillearriaza.github.io/swadeizifz/Isthmus%20Free%20Zone.pdf
+
 ## Web App Architecture
 The Apps Script can be viewed here:
 https://script.google.com/macros/s/AKfycbwf704MTr3yz_nzcMlhpZBeFRoiuLak82KvYe3LG0CsXW1I1DNThDQp_mwjjUFfBVs/exec
+
 The Google Sheet containing the Apps Script can be viewed and copied here:
 https://docs.google.com/spreadsheets/d/1lIWMbaGDFwCm61CMvXYg5hKTs7M8pgTO-46HQh38KPs
 
