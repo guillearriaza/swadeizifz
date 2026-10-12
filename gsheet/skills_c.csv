@@ -1,0 +1,275 @@
+character_id,skill,skill_points_spent,notes
+1,Athletics,0,Base Skill
+1,Common Knowledge,0,Base Skill
+1,Notice,0,Base Skill
+1,Persuasion,0,Base Skill
+1,Stealth,0,Base Skill
+1,Repair,1,Origin Skill
+1,Electronics,1,Origin Skill
+1,Notice,1,Character Creation
+1,Hacking,2,Character Creation
+1,Repair,4,Character Creation
+1,Shooting,1,Character Creation
+1,Driving,2,Character Creation
+1,Electronics,2,Character Creation
+1,Electronics,1,First Advancement
+1,Hacking,1,First Advancement
+1,Electronics,1,Second Advancement
+1,Hacking,1,Second Advancement
+2,Athletics,0,Base Skill
+2,Common Knowledge,0,Base Skill
+2,Notice,0,Base Skill
+2,Persuasion,0,Base Skill
+2,Stealth,0,Base Skill
+2,Fighting,1,Origin Skill
+2,Intimidation,1,Origin Skill
+2,Athletics,1,Character Creation
+2,Notice,1,Character Creation
+2,Stealth,1,Character Creation
+2,Fighting,3,Character Creation
+2,Shooting,3,Character Creation
+2,Intimidation,3,Character Creation
+2,Fighting,1,Second Advancement
+2,Shooting,1,Second Advancement
+3,Athletics,0,Base Skill
+3,Common Knowledge,0,Base Skill
+3,Notice,0,Base Skill
+3,Persuasion,0,Base Skill
+3,Stealth,0,Base Skill
+3,Science,1,Origin Skill
+3,Academics,1,Origin Skill
+3,Athletics,3,Character Creation
+3,Shooting,4,Character Creation
+3,Research,3,Character Creation
+3,Fighting,2,Character Creation
+3,Athletics,1,Second Advancement
+3,Shooting,1,Second Advancement
+4,Athletics,0,Base Skill
+4,Common Knowledge,0,Base Skill
+4,Notice,0,Base Skill
+4,Persuasion,0,Base Skill
+4,Stealth,0,Base Skill
+4,Healing,1,Origin Skill
+4,Academics,1,Origin Skill
+4,Notice,2,Character Creation
+4,Stealth,1,Character Creation
+4,Healing,4,Character Creation
+4,Science,3,Character Creation
+4,Research,2,Character Creation
+4,Science,1,Second Advancement
+4,Research,1,Second Advancement
+4,Science,1,Third Advancement
+4,Research,1,Third Advancement
+5,Athletics,0,Base Skill
+5,Common Knowledge,0,Base Skill
+5,Notice,0,Base Skill
+5,Persuasion,0,Base Skill
+5,Stealth,0,Base Skill
+5,Hacking,1,Origin Skill
+5,Driving,1,Origin Skill
+5,Common Knowledge,2,Character Creation
+5,Persuasion,3,Character Creation
+5,Intimidation,4,Character Creation
+5,Shooting,2,Character Creation
+5,Fighting,1,Character Creation
+6,Athletics,0,Base Skill
+6,Common Knowledge,0,Base Skill
+6,Notice,0,Base Skill
+6,Persuasion,0,Base Skill
+6,Stealth,0,Base Skill
+6,Science,1,Origin Skill
+6,Hacking,1,Origin Skill
+6,Intimidation,5,Character Creation
+6,Battle,3,Character Creation
+6,Gambling,3,Character Creation
+6,Thievery,1,Character Creation
+7,Athletics,0,Base Skill
+7,Common Knowledge,0,Base Skill
+7,Notice,0,Base Skill
+7,Persuasion,0,Base Skill
+7,Stealth,0,Base Skill
+7,Science,1,Origin Skill
+7,Academics,1,Origin Skill
+7,Science,3,Character Creation
+7,Academics,3,Character Creation
+7,Research,3,Character Creation
+7,Common Knowledge,1,Character Creation
+7,Electronics,2,Character Creation
+7,Science,1,Elderly Hindrance
+7,Academics,1,Elderly Hindrance
+7,Common Knowledge,3,Elderly Hindrance
+8,Athletics,0,Base Skill
+8,Common Knowledge,0,Base Skill
+8,Notice,0,Base Skill
+8,Persuasion,0,Base Skill
+8,Stealth,0,Base Skill
+8,Hacking,1,Origin Skill
+8,Driving,1,Origin Skill
+8,Common Knowledge,3,Character Creation
+8,Notice,2,Character Creation
+8,Persuasion,2,Character Creation
+8,Stealth,1,Character Creation
+8,Healing,2,Character Creation
+8,Shooting,2,Character Creation
+9,Athletics,0,Base Skill
+9,Common Knowledge,0,Base Skill
+9,Notice,0,Base Skill
+9,Persuasion,0,Base Skill
+9,Stealth,0,Base Skill
+9,Hacking,1,Origin Skill
+9,Driving,1,Origin Skill
+9,Common Knowledge,2,Character Creation
+9,Persuasion,3,Character Creation
+9,Battle,5,Character Creation
+9,Shooting,2,Character Creation
+10,Athletics,0,Base Skill
+10,Common Knowledge,0,Base Skill
+10,Notice,0,Base Skill
+10,Persuasion,0,Base Skill
+10,Stealth,0,Base Skill
+10,Academics,1,Origin Skill
+10,Intimidation,1,Origin Skill
+10,Athletics,2,Character Creation
+10,Persuasion,3,Character Creation
+10,Academics,4,Character Creation
+10,Gambling,3,Character Creation
+11,Athletics,0,Base Skill
+11,Common Knowledge,0,Base Skill
+11,Notice,0,Base Skill
+11,Persuasion,0,Base Skill
+11,Stealth,0,Base Skill
+11,Survival,1,Origin Skill
+11,Repair,1,Origin Skill
+11,Athletics,4,Character Creation
+11,Notice,1,Character Creation
+11,Piloting,3,Character Creation
+11,Fighting,4,Character Creation
+12,Athletics,0,Base Skill
+12,Common Knowledge,0,Base Skill
+12,Notice,0,Base Skill
+12,Persuasion,0,Base Skill
+12,Stealth,0,Base Skill
+12,Fighting,1,Origin Skill
+12,Shooting,1,Origin Skill
+12,Athletics,3,Character Creation
+12,Fighting,3,Character Creation
+12,Shooting,3,Character Creation
+12,Healing,1,Character Creation
+12,Intimidation,1,Character Creation
+12,Taunt,1,Character Creation
+13,Athletics,0,Base Skill
+13,Common Knowledge,0,Base Skill
+13,Notice,0,Base Skill
+13,Persuasion,0,Base Skill
+13,Stealth,0,Base Skill
+13,Repair,1,Origin Skill
+13,Intimidation,1,Origin Skill
+13,Athletics,1,Character Creation
+13,Common Knowledge,1,Character Creation
+13,Notice,1,Character Creation
+13,Persuasion,1,Character Creation
+13,Stealth,1,Character Creation
+13,Intimidation,1,Character Creation
+13,Healing,2,Character Creation
+13,Riding,2,Character Creation
+13,Shooting,1,Character Creation
+13,Repair,1,Character Creation
+14,Athletics,0,Base Skill
+14,Common Knowledge,0,Base Skill
+14,Notice,0,Base Skill
+14,Persuasion,0,Base Skill
+14,Stealth,0,Base Skill
+14,Repair,1,Origin Skill
+14,Taunt,1,Origin Skill
+14,Athletics,1,Character Creation
+14,Common Knowledge,1,Character Creation
+14,Notice,1,Character Creation
+14,Persuasion,1,Character Creation
+14,Stealth,1,Character Creation
+14,Shooting,3,Character Creation
+14,Fighting,3,Character Creation
+14,Intimidation,1,Character Creation
+15,Athletics,0,Base Skill
+15,Common Knowledge,0,Base Skill
+15,Notice,0,Base Skill
+15,Persuasion,0,Base Skill
+15,Stealth,0,Base Skill
+15,Fighting,1,Origin Skill
+15,Shooting,1,Origin Skill
+15,Athletics,1,Character Creation
+15,Common Knowledge,1,Character Creation
+15,Notice,1,Character Creation
+15,Persuasion,1,Character Creation
+15,Stealth,2,Character Creation
+15,Athletics,1,Character Creation
+15,Fighting,2,Character Creation
+15,Shooting,2,Character Creation
+15,Intimidation,1,Character Creation
+16,Athletics,0,Base Skill
+16,Common Knowledge,0,Base Skill
+16,Notice,0,Base Skill
+16,Persuasion,0,Base Skill
+16,Stealth,0,Base Skill
+16,Repair,1,Origin Skill
+16,Taunt,1,Origin Skill
+16,Athletics,1,Character Creation
+16,Common Knowledge,1,Character Creation
+16,Notice,1,Character Creation
+16,Persuasion,1,Character Creation
+16,Stealth,1,Character Creation
+16,Shooting,3,Character Creation
+16,Fighting,3,Character Creation
+16,Intimidation,1,Character Creation
+17,Athletics,0,Base Skill
+17,Common Knowledge,0,Base Skill
+17,Notice,0,Base Skill
+17,Persuasion,0,Base Skill
+17,Stealth,0,Base Skill
+17,Hacking,1,Origin Skill
+17,Driving,1,Origin Skill
+17,Athletics,1,Character Creation
+17,Common Knowledge,2,Character Creation
+17,Notice,2,Character Creation
+17,Persuasion,1,Character Creation
+17,Stealth,1,Character Creation
+17,Hacking,1,Character Creation
+17,Driving,1,Character Creation
+17,Fighting,2,Character Creation
+17,Shooting,1,Character Creation
+18,Athletics,0,Base Skill
+18,Common Knowledge,0,Base Skill
+18,Notice,0,Base Skill
+18,Persuasion,0,Base Skill
+18,Stealth,0,Base Skill
+18,Intimidation,1,Origin Skill
+18,Fighting,1,Origin Skill
+18,Athletics,1,Character Creation
+18,Common Knowledge,1,Character Creation
+18,Notice,1,Character Creation
+18,Persuasion,1,Character Creation
+18,Stealth,1,Character Creation
+18,Academics,0,Android Race
+18,Intimidation,1,Character Creation
+18,Fighting,1,Character Creation
+18,Shooting,3,Character Creation
+18,Electronics,2,Character Creation
+19,Athletics,0,Base Skill
+19,Common Knowledge,0,Base Skill
+19,Notice,0,Base Skill
+19,Persuasion,0,Base Skill
+19,Stealth,0,Base Skill
+19,Fighting,1,Origin Skill
+19,Intimidation,1,Origin Skill
+19,Athletics,2,Character Creation
+19,Common Knowledge,1,Character Creation
+19,Notice,1,Character Creation
+19,Persuasion,1,Character Creation
+19,Stealth,2,Character Creation
+19,Fighting,1,Character Creation
+19,Shooting,2,Character Creation
+19,Driving,2,Character Creation
+20,Athletics,2,Modified Dire Wolf from SWADE Core Page 181
+20,Notice,1,Modified Dire Wolf from SWADE Core Page 181
+20,Stealth,2,Modified Dire Wolf from SWADE Core Page 181
+20,Fighting,3,Modified Dire Wolf from SWADE Core Page 181
+20,Intimidation,3,Modified Dire Wolf from SWADE Core Page 181

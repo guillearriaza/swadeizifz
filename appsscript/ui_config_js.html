@@ -1,0 +1,475 @@
+<script type="text/javascript">
+  const DERIVED_DESCRIPTIONS = {
+    pace: "Pace determines how many ground units/inches an operative can traverse during a single combat movement round.",
+    parry: "Parry represents the operative's close-combat defense rating, acting as the target numerical threshold for enemy melee attacks.",
+    toughness: "Toughness represents damage resistance against physical harm, kinetic impact, and weapon strikes. Values in parentheses denote armor protection.",
+    armor: "Armor represents cumulative ballistic, physical, and technological protection provided by worn tactical gear, cybernetics, weapons, edges, or racial traits.",
+    encumbrance: "Encumbrance dictates total physical carrying capacity based on muscle strength before suffer physical exhaustion penalties.",
+    strain: "Strain measures the bio-neurological toll that installed cyberware places on an operative's body. Total strain is not recommended to exceed the operative's base Vigor die. Installing augmentations over strain requires a Vigor trait roll. Failing it will cause the character's immediate death. Passing it will assign the Latent Cyber Psychosis hindrance on the character."
+  };
+
+  const SUBCATEGORY_CONFIG = {
+    attrib_c: {
+      title: "ATTRIBUTES DIRECTORY",
+      emptyMsg: "No attribute records registered for this operative.",
+      cardHeight: "70px",
+      getItems: (charId) => {
+        const ATTRIBUTE_LIST = ["Agility", "Smarts", "Spirit", "Strength", "Vigor"];
+
+        return ATTRIBUTE_LIST.map(attrName => {
+          const { die, flatMod } = getFinalAttribute(charId, attrName);
+          let modDisplay = "";
+          if (flatMod > 0) modDisplay = '<span class="attr-mod-plus">+' + flatMod + '</span>';
+          else if (flatMod < 0) modDisplay = '<span class="attr-mod-minus">' + flatMod + '</span>';
+
+          return {
+            title: attrName.toUpperCase(),
+            mainVal: die,
+            subVal: modDisplay,
+            onClick: () => openInsight('attribute', attrName)
+          };
+        });
+      }
+    },
+    skills_c: {
+      title: "SKILLS DIRECTORY",
+      emptyMsg: "No skill records registered for this operative.",
+      cardHeight: "70px",
+      getItems: (charId) => {
+        const charSkills = gsheet.skills_c?.[charId] || [];
+        const unique = [];
+        charSkills.forEach(sRow => {
+          if (sRow.skill) {
+            const clean = String(sRow.skill).trim();
+            if (!unique.some(u => u.toLowerCase() === clean.toLowerCase())) unique.push(clean);
+          }
+        });
+
+        return unique.map(skillName => {
+          const { die, flatMod } = getFinalSkill(charId, skillName);
+          let modDisplay = "";
+          if (flatMod > 0) modDisplay = '<span class="attr-mod-plus">+' + flatMod + '</span>';
+          else if (flatMod < 0) modDisplay = '<span class="attr-mod-minus">' + flatMod + '</span>';
+
+          return {
+            title: skillName,
+            mainVal: die,
+            subVal: modDisplay,
+            onClick: () => openInsight('skill', skillName)
+          };
+        });
+      }
+    },
+
+    cbw_c: {
+      title: "CYBERWARE DIRECTORY",
+      emptyMsg: "No cybernetic enhancements detected for this operative.",
+      cardHeight: "80px",
+      getItems: (charId) => {
+        return (gsheet.cbw_c?.[charId] || []).filter(w => w.ware).map(w => {
+          const key = w.ware.trim().toLowerCase();
+          const dict = gsheet.dictionary?.[key] || {};
+          const category = dict.dimension_1 || "CYBERWARE";
+          const strain = (w.strain !== undefined && w.strain !== "") ? w.strain : (dict.metric_2 || 0);
+          const cost = (w.cost !== undefined && w.cost !== "") ? w.cost : (dict.metric_1 || 0);
+
+          return {
+            header: category,
+            title: w.ware,
+            footer: '<span style="margin-right:12px;">STRAIN: <strong style="color:#fff;">' + strain + '</strong></span><span>COST: <strong style="color:#fff;">$' + Number(cost).toLocaleString() + '</strong></span>',
+            onClick: () => openInsight('cyberware', w.ware, w)
+          };
+        });
+      }
+    },
+
+    e_h_c: {
+      title: "EDGES & HINDRANCES",
+      emptyMsg: "No recorded Edges or Hindrances for this operative.",
+      cardHeight: "80px",
+      getItems: (charId) => {
+        const combined = [];
+        const seen = new Set();
+        const nativeEH = gsheet.e_h_c?.[charId] || [];
+
+        nativeEH.forEach(item => {
+          const raw = item.edge_hindrance || item.source_id;
+          if (!raw) return;
+          const key = String(raw).trim().toLowerCase();
+          if (key.startsWith("any ")) return;
+          seen.add(key);
+
+          combined.push({
+            name: String(raw).trim(),
+            type: item.type || (item.major_minor ? "Hindrance" : "Edge"),
+            majorMinor: item.major_minor || null,
+            target: item.target || null,
+            source: item.bonus_or_forced || "Native",
+            details: item.character_details || null
+          });
+        });
+
+        const activeSources = new Map();
+        const char = gsheet.c?.[charId];
+        if (char && char.race) activeSources.set(char.race.toLowerCase(), char.race);
+        if (char && char.hybrid) activeSources.set(char.hybrid.toLowerCase(), char.hybrid + " Hybrid");
+        (gsheet.cbw_c?.[charId] || []).forEach(w => { if (w.ware) activeSources.set(w.ware.toLowerCase(), w.ware); });
+
+        (gsheet.mods || []).forEach(mod => {
+          if (!mod || !mod.source_id) return;
+          const sourceKey = String(mod.source_id).toLowerCase();
+          if (activeSources.has(sourceKey)) {
+            const toMod = String(mod.to_modify || "").toLowerCase();
+            if (toMod === "edge" || toMod === "hindrance" || toMod === "special ability") {
+              const granted = mod.target ? String(mod.target).trim() : null;
+              if (!granted || granted.toLowerCase().startsWith("any ")) return;
+
+              const key = granted.toLowerCase();
+              if (!seen.has(key)) {
+                seen.add(key);
+                
+                // Determine display type
+                let displayType = "Edge";
+                if (toMod === "hindrance") {
+                  displayType = "Hindrance";
+                } else if (toMod === "special ability") {
+                  displayType = "Special Ability"; // Or "Edge" if you prefer it labeled strictly as Edge
+                }
+
+                combined.push({
+                  name: granted,
+                  type: displayType,
+                  majorMinor: (mod.mod_value === "Major" || mod.mod_value === "Minor") ? mod.mod_value : null,
+                  source: 'Granted by ' + activeSources.get(sourceKey),
+                  details: mod.notes || ('Granted via ' + activeSources.get(sourceKey) + '.')
+                });
+              }
+            }
+          }
+        });
+
+        return combined.map(eh => {
+          const isHindrance = eh.type.toLowerCase() === "hindrance";
+          const badgeColor = isHindrance ? "#ff3333" : "#66fcf1";
+          const subBadge = eh.type + (eh.majorMinor ? ' (' + eh.majorMinor + ')' : '');
+          return {
+            header: subBadge,
+            headerColor: badgeColor,
+            title: eh.name,
+            footer: eh.source,
+            onClick: () => openInsight('edge', eh.name, eh)
+          };
+        });
+      }
+    },
+
+    armor_c: {
+      title: "ARMOR SYSTEMS",
+      emptyMsg: "No armor systems equipped for this operative.",
+      cardHeight: "80px",
+      getItems: (charId) => {
+        return (gsheet.armor_c?.[charId] || []).filter(a => a.armor).map(item => ({
+          header: item.armor_bonus ? '+' + item.armor_bonus + ' ARMOR' : "ARMOR",
+          title: item.armor,
+          footer: item.source || "Equipped",
+          onClick: () => openInsight('armor', item.armor, item)
+        }));
+      }
+    },
+
+    gear_c: {
+      title: "GEAR & INVENTORY",
+      emptyMsg: "No gear items recorded for this operative.",
+      cardHeight: "80px",
+      getItems: (charId) => {
+        return (gsheet.gear_c?.[charId] || []).filter(g => g.gear).map(item => ({
+          header: "INVENTORY ITEM",
+          title: item.gear,
+          footer: item.source || "Carried",
+          onClick: () => openInsight('gear', item.gear, item)
+        }));
+      }
+    }
+  };
+
+  // Unified Insight Payload Builder
+  const INSIGHT_CONFIG = {
+    derived: (key, row, charId) => {
+      const data = getDerivedStatValue(charId, key);
+      return {
+        title: key.toUpperCase(),
+        description: DERIVED_DESCRIPTIONS[key] || "Derived operational statistic.",
+        metadata: [],
+        logs: data.logs,
+        onBack: () => navigateTo('screen-profile')
+      };
+    },
+
+    attribute: (attrName, row, charId) => {
+      const targetKey = attrName.toLowerCase();
+      const dict = gsheet.dictionary?.[targetKey] || {};
+      const basePoints = getAggregatedAttributePoints(charId, targetKey);
+      const { stepBonus, flatBonus, logs } = getActiveModifiers(charId, { category: "attribute", targetKey });
+
+      // 1. Gather all rows for this attribute from attrib_c
+      const charAttribRows = (gsheet.attrib_c?.[charId] || []).filter(
+        r => r.attribute && String(r.attribute).trim().toLowerCase() === targetKey
+      );
+
+      // 2. Build itemized logs from sheet rows
+      const allocationLogs = [];
+      if (charAttribRows.length > 0) {
+        charAttribRows.forEach(r => {
+          const pts = Number(r.advancement_points_spent) || 0;
+          const note = r.notes ? ` <em>(${r.notes})</em>` : "";
+          allocationLogs.push(`<li><strong>Allocation:</strong> +${pts} Step(s)${note}</li>`);
+        });
+      } else {
+        allocationLogs.push('<li><strong>Base Baseline:</strong> d4 (0 points spent)</li>');
+      }
+
+      const mathLogs = [
+        '<li><strong>Baseline Trait:</strong> d4</li>',
+        ...allocationLogs,
+        ...logs
+      ];
+
+      const finalDie = pointsToDie(basePoints + stepBonus);
+      let summary = '<strong>Final Output:</strong> ' + finalDie;
+      if (flatBonus !== 0) summary += ' (' + (flatBonus > 0 ? "+" : "") + flatBonus + ')';
+      mathLogs.push('<li style="color:#66fcf1; margin-top:10px; border-top:1px dashed rgba(102,252,241,0.3); padding-top:6px;">' + summary + '</li>');
+
+      const sourceMeta = dict.sourcebook ? 'SOURCE: ' + dict.sourcebook + (dict.page ? ', p. ' + dict.page : '') : null;
+
+      return {
+        title: targetKey.toUpperCase(),
+        description: dict.description || "No system documentation available for this attribute.",
+        metadata: [sourceMeta].filter(Boolean),
+        logs: mathLogs,
+        onBack: () => navigateTo('screen-profile')
+      };
+    },
+
+    skill: (skillName, row, charId) => {
+      const targetKey = skillName.trim().toLowerCase();
+      const isCore = CORE_SKILLS.includes(targetKey);
+      const dict = gsheet.dictionary?.[targetKey] || {};
+      const basePoints = getAggregatedSkillPoints(charId, targetKey);
+      const { stepBonus, flatBonus, logs } = getActiveModifiers(charId, { category: "skill", targetKey, includeArmor: true });
+
+      // 1. Gather all rows for this skill from skills_c
+      const charSkillRows = (gsheet.skills_c?.[charId] || []).filter(
+        s => s.skill && String(s.skill).trim().toLowerCase() === targetKey
+      );
+
+      // 2. Build itemized logs from sheet rows
+      const skillLogs = [];
+      if (isCore) {
+        skillLogs.push('<li><strong>Core Baseline:</strong> Free d4</li>');
+      }
+
+      charSkillRows.forEach(s => {
+        const pts = Number(s.skill_points_spent) || 0;
+        const note = s.notes ? ` <em>(${s.notes})</em>` : "";
+        skillLogs.push(`<li><strong>Training Allocation:</strong> +${pts} pt(s)${note}</li>`);
+      });
+
+      const mathLogs = [
+        ...skillLogs,
+        ...logs
+      ];
+
+      const finalDie = pointsToSkillDie(basePoints, stepBonus, isCore);
+      let summary = '<strong>Final Output:</strong> ' + finalDie;
+      if (flatBonus !== 0) summary += ' (' + (flatBonus > 0 ? "+" : "") + flatBonus + ')';
+      mathLogs.push('<li style="color:#66fcf1; margin-top:10px; border-top:1px dashed rgba(102,252,241,0.3); padding-top:6px;">' + summary + '</li>');
+
+      return {
+        title: skillName.toUpperCase(),
+        description: dict.description || "No system documentation available for this skill.",
+        metadata: [
+          dict.dimension_1 ? 'LINKED ATTRIBUTE: ' + dict.dimension_1 : null,
+          dict.sourcebook ? 'SOURCE: ' + dict.sourcebook + (dict.page ? ', p. ' + dict.page : '') : null
+        ].filter(Boolean),
+        logs: mathLogs,
+        onBack: () => openSubCategory('skills_c')
+      };
+    },
+
+    cyberware: (wareName, wareRow, charId) => {
+      const targetKey = wareName.trim().toLowerCase();
+      const dict = gsheet.dictionary?.[targetKey] || {};
+      const category = dict.dimension_1 || "Cyberware";
+      const strain = (wareRow.strain !== undefined && wareRow.strain !== "") ? wareRow.strain : (dict.metric_2 || 0);
+      const cost = (wareRow.cost !== undefined && wareRow.cost !== "") ? wareRow.cost : (dict.metric_1 || 0);
+      const selectedTarget = wareRow.target ? String(wareRow.target).trim() : null;
+
+      const mathLogs = [];
+      (gsheet.mods || []).forEach(mod => {
+        if (!mod || !mod.source_id) return;
+        if (String(mod.source_id).trim().toLowerCase() === targetKey) {
+          const modType = String(mod.mod_type || "").toLowerCase();
+          const toModify = String(mod.to_modify || "System");
+          let targetStr = mod.target ? String(mod.target) : "";
+          if (targetStr === "ANY 1" && selectedTarget) targetStr = selectedTarget;
+          const targetLabel = targetStr ? ' (' + targetStr + ')' : "";
+          const modVal = Number(mod.mod_value) || 0;
+
+          if (modType === "type" || modType === "step" || modType === "die") {
+            mathLogs.push('<li><strong>' + toModify + targetLabel + ':</strong> +' + modVal + ' Die Step(s)</li>');
+          } else if (modType === "modifier" || modType === "flat") {
+            mathLogs.push('<li><strong>' + toModify + targetLabel + ':</strong> ' + (modVal >= 0 ? "+" : "") + modVal + ' Flat Roll Mod</li>');
+          } else {
+            mathLogs.push('<li><strong>Effect (' + (targetStr || 'General') + '):</strong> ' + (mod.notes || (toModify + targetLabel)) + '</li>');
+          }
+        }
+      });
+
+      if (mathLogs.length === 0) {
+        mathLogs.push('<li><em>No direct numerical attribute/skill modifiers attached. Provides functional utility or special action permissions.</em></li>');
+      }
+
+      return {
+        title: wareName,
+        description: dict.description || wareRow.notes || "No system specifications available for this cybernetic installation.",
+        metadata: [
+          'CATEGORY: ' + category,
+          'STRAIN: ' + strain,
+          'COST: $' + Number(cost).toLocaleString(),
+          selectedTarget ? 'TARGET: ' + selectedTarget : null,
+          dict.sourcebook ? 'SOURCE: ' + dict.sourcebook + (dict.page ? ', p. ' + dict.page : '') : null
+        ].filter(Boolean),
+        logs: mathLogs,
+        onBack: () => openSubCategory('cbw_c')
+      };
+    },
+
+    edge: (name, eh, charId) => {
+      const targetKey = eh.name.trim().toLowerCase();
+      const dict = gsheet.dictionary?.[targetKey] || {};
+      const mathLogs = [];
+      if (eh.details) mathLogs.push('<li><strong>Operative Notes:</strong> ' + eh.details + '</li>');
+
+      (gsheet.mods || []).forEach(mod => {
+        if (!mod || !mod.source_id) return;
+        if (String(mod.source_id).trim().toLowerCase() === targetKey) {
+          const modType = String(mod.mod_type || "").toLowerCase();
+          const toModify = String(mod.to_modify || "System");
+          const targetStr = mod.target ? ' (' + String(mod.target) + ')' : "";
+          const modVal = Number(mod.mod_value) || 0;
+
+          if (modType === "type" || modType === "step" || modType === "die") {
+            mathLogs.push('<li><strong>Modifies ' + toModify + targetStr + ':</strong> +' + modVal + ' Die Step(s)</li>');
+          } else if (modType === "modifier" || modType === "flat") {
+            mathLogs.push('<li><strong>Modifies ' + toModify + targetStr + ':</strong> ' + (modVal >= 0 ? "+" : "") + modVal + ' Flat Roll Mod</li>');
+          } else if (mod.notes) {
+            mathLogs.push('<li><strong>Rules Effect:</strong> ' + mod.notes + '</li>');
+          }
+        }
+      });
+
+      if (mathLogs.length === 0) {
+        mathLogs.push('<li><em>Provides situational roleplay options, tactical permissions, or special action rules.</em></li>');
+      }
+
+      const ehTypeLabel = eh.type + (eh.majorMinor ? ' (' + eh.majorMinor + ')' : '');
+      return {
+        title: eh.name + (eh.majorMinor ? ' (' + eh.majorMinor + ')' : ''),
+        description: dict.description || eh.details || "No official rulebook description available for this trait.",
+        metadata: [
+          'TYPE: ' + ehTypeLabel,
+          'ORIGIN: ' + eh.source,
+          eh.target ? 'TARGET: ' + eh.target : null,
+          dict.sourcebook ? 'SOURCE: ' + dict.sourcebook + (dict.page ? ', p. ' + dict.page : '') : null
+        ].filter(Boolean),
+        logs: mathLogs,
+        onBack: () => openSubCategory('e_h_c')
+      };
+    },
+
+    armor: (name, item, charId) => {
+      const dict = gsheet.dictionary?.[String(item.armor).trim().toLowerCase()] || {};
+      const rawCovers = item.armor_covers ? String(item.armor_covers) : "Unspecified";
+      const coverageList = rawCovers.split(',').map(part => part.trim()).filter(Boolean);
+
+      const coverageBadgeHTML = coverageList.map(sec => 
+        '<span style="display:inline-block; background:rgba(102, 252, 241, 0.15); border:1px solid #66fcf1; color:#66fcf1; font-family:\'Orbitron\'; font-size:0.75rem; padding:2px 8px; border-radius:4px; margin-right:6px; margin-top:4px;">' + sec + '</span>'
+      ).join("");
+
+      const mathLogs = [
+        '<li><strong>Covered Zones:</strong><div style="margin-top:6px;">' + coverageBadgeHTML + '</div></li>'
+      ];
+      if (item.notes) mathLogs.push('<li><strong>Tactical Notes:</strong> ' + item.notes + '</li>');
+
+      return {
+        title: item.armor,
+        description: dict.description || item.notes || "Standard protective tactical ballistic weave.",
+        metadata: [
+          'PROTECTION: ' + (item.armor_bonus ? '+' + item.armor_bonus : '+0') + ' ARMOR',
+          'COST: ' + (item.cost ? '$' + Number(item.cost).toLocaleString() : 'N/A'),
+          'SOURCE: ' + (item.source || "Standard Issue"),
+          dict.sourcebook ? 'SOURCEBOOK: ' + dict.sourcebook + (dict.page ? ', p. ' + dict.page : '') : null
+        ].filter(Boolean),
+        logs: mathLogs,
+        onBack: () => openSubCategory('armor_c')
+      };
+    },
+
+    gear: (name, item, charId) => {
+      const dict = gsheet.dictionary?.[String(item.gear).trim().toLowerCase()] || {};
+      const mathLogs = [
+        item.notes ? '<li><strong>Field Notes:</strong> ' + item.notes + '</li>' : '<li><em>Standard issue utility gear. No special operational penalties or modifiers attached.</em></li>'
+      ];
+
+      return {
+        title: item.gear,
+        description: dict.description || item.notes || "Standard field equipment.",
+        metadata: [
+          'COST: ' + (item.cost ? '$' + Number(item.cost).toLocaleString() : 'N/A'),
+          'SOURCE: ' + (item.source || "Standard Issue"),
+          dict.sourcebook ? 'SOURCEBOOK: ' + dict.sourcebook + (dict.page ? ', p. ' + dict.page : '') : null
+        ].filter(Boolean),
+        logs: mathLogs,
+        onBack: () => openSubCategory('gear_c')
+      };
+    },
+
+    weapon: (name, w, charId) => {
+      const weaponName = String((w.brand || '') + ' ' + w.weapon + ' ' + (w.caliber ? '(' + w.caliber + ')' : '') + ' ' + (w.category || '')).trim();
+      const dict = gsheet.dictionary?.[weaponName.toLowerCase()] || {};
+      const cost = w.cost ? '$' + Number(w.cost).toLocaleString() : "N/A";
+
+      const specMatrixHTML = 
+        '<div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-top:12px; margin-bottom:12px; background:rgba(10, 25, 47, 0.8); border:1px solid rgba(102, 252, 241, 0.3); padding:12px; border-radius:6px;">' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">DAMAGE</div><div style="font-size:1.1rem; font-weight:bold; color:#66fcf1; font-family:\'Orbitron\'; margin-top:2px;">' + (w.damage || "—") + '</div></div>' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">ARMOR PIERCING</div><div style="font-size:1.1rem; font-weight:bold; color:#ff007f; font-family:\'Orbitron\'; margin-top:2px;">' + (w.ap !== undefined && w.ap !== null && w.ap !== "" ? w.ap : "0") + '</div></div>' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">EFFECTIVE RANGE</div><div style="font-size:1rem; font-weight:bold; color:#fff; margin-top:2px;">' + (w.range || "Melee") + '</div></div>' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">RATE OF FIRE</div><div style="font-size:1rem; font-weight:bold; color:#fff; margin-top:2px;">' + (w.rof || "1") + '</div></div>' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">CAPACITY / AMMO</div><div style="font-size:1rem; font-weight:bold; color:#fff; margin-top:2px;">' + (w.shots || "—") + '</div></div>' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">MIN STRENGTH</div><div style="font-size:1rem; font-weight:bold; color:#fff; margin-top:2px;">' + (w.min_str || "None") + '</div></div>' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">WEIGHT</div><div style="font-size:0.9rem; color:#ccc; margin-top:2px;">' + (w.wt ? w.wt + ' lbs' : "—") + '</div></div>' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">CONCEALMENT</div><div style="font-size:0.9rem; color:#ccc; margin-top:2px;">' + (w.conceal || "Standard") + '</div></div>' +
+          '<div style="text-align:center;"><div style="font-size:0.65rem; color:#888; font-family:\'Orbitron\';">MARKET VALUE</div><div style="font-size:0.9rem; color:#66fcf1; margin-top:2px;">' + cost + '</div></div>' +
+        '</div>';
+
+      const mathLogs = ['<li>' + specMatrixHTML + '</li>'];
+      if (w.notes) mathLogs.push('<li><strong>Special Combat Properties:</strong> ' + w.notes + '</li>');
+
+      let extraMedia = "";
+      if (w.irlwebsite) extraMedia += '<br><div style="font-size:0.85rem; color:#66fcf1; font-family:\'Orbitron\'; margin-top:2px;"><a href="' + w.irlwebsite + '" target="_blank" style="color:#66fcf1;">' + w.irlwebsite + '</a></div>';
+      if (w.picture) extraMedia += '<br><div style="text-align:center; margin-top:6px;"><img style="max-width:600px; height:auto; border:2px solid #cccc00;" src="' + w.picture + '" /></div>';
+
+      return {
+        title: weaponName,
+        description: (dict.description || w.notes || "Standard issue ballistic armament.") + ' ' + extraMedia,
+        metadata: [
+          'SOURCE / LOGISTICS: ' + (w.source || "Standard Issue"),
+          'UNIT COST: ' + cost,
+          dict.sourcebook ? 'SOURCEBOOK: ' + dict.sourcebook + (dict.page ? ', p. ' + dict.page : '') : null
+        ].filter(Boolean),
+        logs: mathLogs,
+        onBack: () => renderWeaponsList()
+      };
+    }
+  };
+</script>

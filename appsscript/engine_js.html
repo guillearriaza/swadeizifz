@@ -1,0 +1,307 @@
+<script type="text/javascript">
+  const CORE_SKILLS = ["athletics", "common knowledge", "notice", "persuasion", "stealth"];
+
+  function parseDieMax(dieString) {
+    if (!dieString || dieString === "Untrained") return 2;
+    const match = dieString.match(/d(\d+)/);
+    return match ? parseInt(match[1], 10) : 4;
+  }
+
+  function pointsToDie(totalPoints) {
+    const dieArray = ["d4", "d6", "d8", "d10", "d12"];
+    if (totalPoints <= 0) return "d4";
+    if (totalPoints < dieArray.length) return dieArray[totalPoints];
+    const bonus = totalPoints - (dieArray.length - 1);
+    return "d12+" + bonus;
+  }
+
+  function pointsToSkillDie(pointsSpent, stepMods, isCore) {
+    let effectiveSteps = 0;
+    if (isCore) {
+      effectiveSteps = pointsSpent + stepMods;
+    } else {
+      if (pointsSpent <= 0 && stepMods <= 0) return "Untrained";
+      effectiveSteps = (pointsSpent - 1) + stepMods;
+    }
+
+    const dieArray = ["d4", "d6", "d8", "d10", "d12"];
+    if (effectiveSteps < 0) return "Untrained";
+    if (effectiveSteps < dieArray.length) return dieArray[effectiveSteps];
+    const bonus = effectiveSteps - (dieArray.length - 1);
+    return "d12+" + bonus;
+  }
+
+  function getAggregatedSkillPoints(charId, targetSkill) {
+    const charSkills = gsheet.skills_c?.[charId] || [];
+    let totalPoints = 0;
+    charSkills.forEach(sRow => {
+      if (sRow.skill && String(sRow.skill).trim().toLowerCase() === targetSkill) {
+        totalPoints += Number(sRow.skill_points_spent) || 0;
+      }
+    });
+    return totalPoints;
+  }
+
+  function getActiveModifiers(charId, { category, targetKey, includeArmor = false }) {
+    const char = gsheet.c?.[charId];
+    if (!char) return { stepBonus: 0, flatBonus: 0, rerollNote: null, logs: [] };
+
+    const activeSources = new Map();
+    if (char.race) {
+      activeSources.set(char.race.toLowerCase(), { name: char.race, stacks: 1, target: null });
+    }
+    if (char.hybrid) {
+      activeSources.set(char.hybrid.toLowerCase(), { name: char.hybrid + " Hybrid", stacks: 1, target: null });
+    }
+
+    (gsheet.e_h_c?.[charId] || []).forEach(item => {
+      const src = item.edge_hindrance || item.source_id;
+      if (src) {
+        activeSources.set(src.toLowerCase(), {
+          name: src,
+          stacks: Number(item.stacks) || 1,
+          target: item.target ? String(item.target).trim().toLowerCase() : null
+        });
+      }
+    });
+
+    (gsheet.cbw_c?.[charId] || []).forEach(item => {
+      if (item.ware) {
+        activeSources.set(item.ware.toLowerCase(), {
+          name: item.ware,
+          stacks: Number(item.stacks) || 1,
+          target: item.target ? String(item.target).trim().toLowerCase() : null
+        });
+      }
+    });
+
+    if (includeArmor) {
+      (gsheet.armor_c?.[charId] || []).forEach(item => {
+        if (item.armor) {
+          activeSources.set(item.armor.toLowerCase(), { name: item.armor, stacks: 1, target: null });
+        }
+      });
+    }
+
+    let stepBonus = 0;
+    let flatBonus = 0;
+    let rerollNote = null;
+    const logs = [];
+
+    const modsList = Array.isArray(gsheet.mods) ? gsheet.mods : [];
+    modsList.forEach(mod => {
+      if (!mod || !mod.source_id) return;
+      const sourceKey = String(mod.source_id).toLowerCase();
+
+      if (activeSources.has(sourceKey)) {
+        const activeItem = activeSources.get(sourceKey);
+        const modType = String(mod.mod_type || "").toLowerCase();
+        const modToModify = String(mod.to_modify || "").toLowerCase();
+        const modTarget = String(mod.target || "").trim().toLowerCase();
+
+        let isTargetMatch = activeItem.target 
+          ? (activeItem.target === targetKey) && (modTarget === targetKey || modTarget === "any 1")
+          : (modTarget === targetKey) || (modTarget === "any 1");
+
+        if (isTargetMatch && modToModify === category) {
+          const maxAllowed = Number(mod.stackable) || 1;
+          const effectiveStacks = Math.min(activeItem.stacks, maxAllowed);
+          const modVal = Number(mod.mod_value) || 0;
+          
+          // --- CONDITIONALS CHECK ---
+          const isConditional = Boolean(mod.requirements && String(mod.requirements).trim() !== "");
+          const noteText = mod.notes ? '<br><em style="color:#888; font-size:0.85em;">↳ ' + mod.notes + '</em>' : '';
+
+          if (modType === "type" || modType === "step" || modType === "die") {
+            if (!isConditional) {
+              stepBonus += (modVal * effectiveStacks);
+            }
+            logs.push('<li><strong>' + activeItem.name + ':</strong> +' + (modVal * effectiveStacks) + ' Die Step(s)' + noteText + '</li>');
+          } else if (modType === "modifier" || modType === "flat") {
+            if (!isConditional) {
+              flatBonus += (modVal * effectiveStacks);
+            }
+            const sign = modVal >= 0 ? "+" : "";
+            logs.push('<li><strong>' + activeItem.name + ':</strong> ' + sign + (modVal * effectiveStacks) + ' Flat Roll Mod' + noteText + '</li>');
+          } else if (modType === "reroll") {
+            rerollNote = mod.mod_value || "Available";
+            logs.push('<li><strong>' + activeItem.name + ':</strong> ' + rerollNote + ' Reroll' + noteText + '</li>');
+          }
+        }
+      }
+    });
+
+    return { stepBonus, flatBonus, rerollNote, logs };
+  }
+
+  // Mirror of getAggregatedSkillPoints
+  function getAggregatedAttributePoints(charId, targetAttr) {
+    const charAttribs = gsheet.attrib_c?.[charId] || [];
+    let totalPoints = 0;
+    charAttribs.forEach(aRow => {
+      if (aRow.attribute && String(aRow.attribute).trim().toLowerCase() === targetAttr) {
+        totalPoints += Number(aRow.advancement_points_spent) || 0;
+      }
+    });
+    return totalPoints;
+  }
+
+  // Updated getFinalAttribute
+  function getFinalAttribute(charId, attrName) {
+    const targetKey = attrName.trim().toLowerCase();
+    const basePoints = getAggregatedAttributePoints(charId, targetKey);
+    const { stepBonus, flatBonus } = getActiveModifiers(charId, { category: "attribute", targetKey });
+
+    return {
+      die: pointsToDie(basePoints + stepBonus),
+      flatMod: flatBonus,
+      pointsSpent: basePoints
+    };
+  }
+
+  function getFinalSkill(charId, skillName) {
+    const targetKey = skillName.trim().toLowerCase();
+    const isCore = CORE_SKILLS.includes(targetKey);
+    const basePoints = getAggregatedSkillPoints(charId, targetKey);
+    const { stepBonus, flatBonus } = getActiveModifiers(charId, { category: "skill", targetKey });
+
+    return {
+      die: pointsToSkillDie(basePoints, stepBonus, isCore),
+      flatMod: flatBonus,
+      pointsSpent: basePoints,
+      isCore: isCore
+    };
+  }
+
+  function getDerivedStatValue(charId, statKey) {
+    const char = gsheet.c?.[charId];
+    if (!char) return { displayVal: "0", base: 0, mods: [], logs: [] };
+
+    let baseVal = 0;
+    let armorBonusSum = 0;
+    const mathLogs = [];
+
+    if (statKey === "pace") {
+      baseVal = 6;
+      mathLogs.push('<li><strong>Standard Baseline Pace:</strong> 6"</li>');
+    } else if (statKey === "parry") {
+      const fightingSkill = getFinalSkill(charId, "fighting");
+      const isUntrained = (!fightingSkill.die || fightingSkill.die === "Untrained");
+      const dieVal = isUntrained ? 0 : parseDieMax(fightingSkill.die);
+      baseVal = 2 + Math.floor(dieVal / 2);
+      
+      const fightingDisplay = isUntrained ? "Untrained (0)" : (fightingSkill.die + "/2");
+      mathLogs.push('<li><strong>Base Parry (2 + Fighting ' + fightingDisplay + '):</strong> ' + baseVal + '</li>');
+    } else if (statKey === "toughness") {
+      const vigorAttr = getFinalAttribute(charId, "vigor");
+      const dieVal = parseDieMax(vigorAttr.die);
+      baseVal = 2 + Math.floor(dieVal / 2);
+      mathLogs.push('<li><strong>Base Toughness (2 + Vigor ' + vigorAttr.die + '/2):</strong> ' + baseVal + '</li>');
+
+      // Pull total effective armor directly so all mods (cyberware, gear, race) carry over
+      const armorData = getDerivedStatValue(charId, "armor");
+      armorBonusSum = Math.max(0, parseInt(armorData.displayVal, 10) || 0);
+
+      if (armorBonusSum > 0) {
+        mathLogs.push('<li><strong>Total Armor Protection:</strong> +' + armorBonusSum + '</li>');
+      }
+    } else if (statKey === "armor") {
+      baseVal = 0;
+      mathLogs.push('<li><strong>Baseline Unarmored Bonus:</strong> +0</li>');
+
+      const charArmor = gsheet.armor_c?.[charId] || [];
+      charArmor.forEach(a => {
+        const bonus = Number(a.armor_bonus) || 0;
+        if (bonus !== 0) {
+          const sign = bonus > 0 ? "+" : "";
+          mathLogs.push('<li><strong>Equipped Armor (' + a.armor + '):</strong> ' + sign + bonus + ' Armor</li>');
+          armorBonusSum += bonus;
+        }
+      });
+    } else if (statKey === "encumbrance") {
+      const strAttr = getFinalAttribute(charId, "strength");
+      const dieVal = parseDieMax(strAttr.die);
+      const maxWeight = dieVal * 5;
+      
+      let currentWeight = 0;
+      (gsheet.gear_c?.[charId] || []).forEach(g => currentWeight += (Number(g.wt) || 0));
+      (gsheet.weapons_c?.[charId] || []).forEach(w => currentWeight += (Number(w.wt) || 0));
+      (gsheet.armor_c?.[charId] || []).forEach(a => currentWeight += (Number(a.wt) || 0));
+
+      mathLogs.push('<li><strong>Max Weight Limit (Strength d' + dieVal + ' x 5 lbs):</strong> ' + maxWeight + ' lbs</li>');
+      mathLogs.push('<li><strong>Current Inventory Mass:</strong> ' + currentWeight + ' lbs</li>');
+
+      return { displayVal: currentWeight + '/' + maxWeight, base: maxWeight, logs: mathLogs };
+    } else if (statKey === "strain") {
+      const vigorAttr = getFinalAttribute(charId, "vigor");
+      const maxStrain = parseDieMax(vigorAttr.die);
+      mathLogs.push('<li><strong>Base Strain Limit (Vigor ' + vigorAttr.die + '):</strong> ' + maxStrain + ' Max</li>');
+
+      let usedStrain = 0;
+      const charWare = gsheet.cbw_c?.[charId] || [];
+      charWare.forEach(item => {
+        if (!item.ware) return;
+        const key = String(item.ware).trim().toLowerCase();
+        const dictItem = gsheet.dictionary?.[key] || {};
+        const itemStrain = (item.strain !== undefined && item.strain !== "" && item.strain !== null)
+          ? Number(item.strain)
+          : (Number(dictItem.metric_2) || 0);
+
+        if (itemStrain > 0) {
+          usedStrain += itemStrain;
+          mathLogs.push('<li><strong>' + item.ware + ':</strong> ' + itemStrain + ' Strain</li>');
+        }
+      });
+
+      mathLogs.push('<li><strong>Total Implant Strain Load:</strong> ' + usedStrain + ' / ' + maxStrain + '</li>');
+      return { displayVal: usedStrain + '/' + maxStrain, base: maxStrain, logs: mathLogs };
+    }
+
+    let modSum = 0;
+    const activeSources = new Map();
+    if (char.race) activeSources.set(char.race.toLowerCase(), char.race);
+    if (char.hybrid) activeSources.set(char.hybrid.toLowerCase(), char.hybrid + " Hybrid");
+    (gsheet.e_h_c?.[charId] || []).forEach(item => {
+      const name = item.edge_hindrance || item.source_id;
+      if (name) activeSources.set(name.toLowerCase(), name);
+    });
+    (gsheet.cbw_c?.[charId] || []).forEach(item => {
+      if (item.ware) activeSources.set(item.ware.toLowerCase(), item.ware);
+    });
+    (gsheet.weapons_c?.[charId] || []).forEach(item => {
+      if (item.weapon) activeSources.set(item.weapon.toLowerCase(), item.weapon);
+    });
+
+    const modsList = Array.isArray(gsheet.mods) ? gsheet.mods : [];
+    modsList.forEach(mod => {
+      if (!mod || !mod.source_id) return;
+      const sourceKey = String(mod.source_id).toLowerCase();
+      if (activeSources.has(sourceKey)) {
+        const toModify = String(mod.to_modify || "").toLowerCase();
+        const modTarget = String(mod.target || "").trim().toLowerCase();
+
+        const isStatMatch = (toModify === statKey) || (toModify === "derived statistic" && modTarget === statKey);
+
+        if (isStatMatch) {
+          const val = Number(mod.mod_value) || 0;
+          const isConditional = Boolean(mod.requirements && String(mod.requirements).trim() !== "");
+          const noteText = mod.notes ? '<br><em style="color:#888; font-size:0.85em;">↳ ' + mod.notes + '</em>' : '';
+          const sign = val >= 0 ? "+" : "";
+
+          if (!isConditional) {
+            modSum += val;
+          }
+
+          mathLogs.push('<li><strong>' + activeSources.get(sourceKey) + ':</strong> ' + sign + val + ' Mod' + noteText + '</li>');
+        }
+      }
+    });
+
+    const totalVal = baseVal + modSum + armorBonusSum;
+    let displayString = String(totalVal);
+    if (statKey === "armor") displayString = (totalVal >= 0 ? "+" : "") + totalVal;
+    else if (statKey === "toughness" && armorBonusSum > 0) displayString = totalVal + " (" + armorBonusSum + ")";
+
+    return { displayVal: displayString, base: baseVal, logs: mathLogs };
+  }
+</script>

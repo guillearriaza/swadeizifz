@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space Grotesk:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <?!= include('css'); ?>
+  <?!= include('dice'); ?>
+  <script type="text/javascript">
+    //Obtain google sheet tables from .gs file
+    const gsheet = <?!= JSON.stringify(result) ?>;
+  </script>
+  <?!= include('engine_js'); ?>
+  <?!= include('ui_config_js'); ?>
+  <?!= include('ui_render_js'); ?></head>
+<body>
+
+  <!-- SCREEN 1: CHARACTER SELECTION RACK -->
+  <div id="screen-selection" class="screen active">
+    <h1 style="font-family:'Orbitron'; text-align:center; color:#ff007f; text-shadow:0 0 10px #ff007f;">SELECT OPERATIVE</h1>
+    <div id="character-grid" class="grid-container"></div>
+  </div>
+
+  <!-- SCREEN 2: MAIN PROFILE SHEET -->
+  <div id="screen-profile" class="screen">
+    <div class="back-arrow" onclick="navigateTo('screen-selection')">◀ SYS_GO_BACK</div>
+    
+    <div class="profile-layout">
+      
+      <!-- Row 1: Dynamic Attributes Zone -->
+      <div class="attributes-row" id="attributes-container">
+        <!-- Generated Dynamically via JS -->
+      </div>
+
+      <!-- Row 2: Centralized HUD (Dossier | Portrait | Derived Stats) -->
+      <div class="center-hud-row">
+        
+        <!-- Left: Character Dossier -->
+        <div class="dossier-panel">
+          <h2 class="dossier-title" id="dossier-char-name">OPERATIVE</h2>
+          <div class="dossier-sub">PLAYER: <span id="dossier-player-name" style="color:#fff;">—</span></div>
+          <div class="dossier-grid">
+            <div class="dossier-item"><span class="dossier-label">RACE</span><span class="dossier-val" id="dossier-race">—</span></div>
+            <div class="dossier-item"><span class="dossier-label">ORIGIN</span><span class="dossier-val" id="dossier-origin">—</span></div>
+            <div class="dossier-item"><span class="dossier-label">AGE</span><span class="dossier-val" id="dossier-age">—</span></div>
+            <div class="dossier-item"><span class="dossier-label">HEIGHT</span><span class="dossier-val" id="dossier-height">—</span></div>
+            <div class="dossier-item"><span class="dossier-label">WEIGHT</span><span class="dossier-val" id="dossier-weight">—</span></div>
+            <div class="dossier-item"><span class="dossier-label">ADVANCEMENT</span><span class="dossier-val" id="dossier-advancement">—</span></div>
+            <div class="dossier-item"><span class="dossier-label">RANK</span><span class="dossier-val" id="dossier-rank">—</span></div>
+          </div>
+        </div>
+
+        <!-- Middle: 40vh x 40vh Portrait -->
+        <div class="center-hud">
+          <div id="char-portrait" class="cyber-portrait-frame"></div>
+        </div>
+
+        <!-- Right: Derived Statistics -->
+        <div class="derived-panel" id="derived-container">
+          <!-- Dynamically Populated -->
+        </div>
+
+      </div>
+
+      <!-- Row 3: Bottom Subcategory Controls Layout -->
+      <div class="subcategory-matrix-row">
+        <button class="neon-btn" onclick="openSubCategory('skills_c')">SKILLS</button>
+        <button class="neon-btn" onclick="openSubCategory('cbw_c')">CYBERWARE</button>
+        <button class="neon-btn" onclick="openSubCategory('e_h_c')">EDGES/HIND</button>
+        <button class="neon-btn" onclick="openSubCategory('weapons_c')">WEAPONS</button>
+        <button class="neon-btn" onclick="openSubCategory('armor_c')">ARMOR</button>
+        <button class="neon-btn" onclick="openSubCategory('gear_c')">GEAR</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SCREEN 3: SUB-LIST VIEW (Skills/Ware/Weapons Lists) -->
+  <div id="screen-sub-list" class="screen">
+    <div class="back-arrow" onclick="navigateTo('screen-profile')">◀ PROFILE_MAIN</div>
+    <h2 id="sub-list-title" style="font-family:'Orbitron'; text-align:center;"></h2>
+    <div id="sub-list-content"></div>
+  </div>
+
+  <!-- SCREEN 4: DEEP INSIGHT VIEW (Descriptions & Calculations) -->
+  <div id="screen-insight" class="screen">
+    <div id="insight-back-btn" class="back-arrow">◀ RETURN</div>
+    <div class="insight-box" style="padding: 20px; max-width: 900px; margin: 0 auto;">
+      <h1 id="insight-title" style="font-family:'Orbitron'; color:#ff007f;"></h1>
+      <h3 style="color:#95a5a6;">SYSTEM DESCRIPTION</h3>
+      <p id="insight-description"></p>
+      <hr style="border:1px solid rgba(102,252,241,0.2);">
+      <h3 style="color:#95a5a6;">MODIFIER BREAKDOWN MATHEMATICS</h3>
+      <ul id="insight-math-breakdown"></ul>
+    </div>
+  </div>
+
+</body>
+</html>

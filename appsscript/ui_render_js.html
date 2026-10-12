@@ -1,0 +1,261 @@
+<script type="text/javascript">
+  let activeCharId = null;
+  let currentSubCategory = null;
+  let historyStack = ['screen-selection'];
+
+  function navigateTo(screenId) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    if (historyStack[historyStack.length - 1] !== screenId) {
+      historyStack.push(screenId);
+    }
+    document.getElementById(screenId).classList.add('active');
+  }
+
+  function goBack() {
+    if (historyStack.length > 1) {
+      historyStack.pop();
+      const previousScreen = historyStack[historyStack.length - 1];
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(previousScreen).classList.add('active');
+    }
+  }
+
+  function renderCharacterSelection() {
+    const grid = document.getElementById("character-grid");
+    grid.innerHTML = "";
+
+    Object.values(gsheet.c).forEach(charData => {
+      const charId = charData.character_id;
+      grid.innerHTML += 
+        '<div id="character_' + charId + '" class="character-selection-option" onclick="selectCharacter(\'' + charId + '\')">' +
+          charData.character + ' <span class="derived-label">(' + charData.player + ')</span>' +
+        '</div>';
+    });
+  }
+
+  function selectCharacter(character_id) {
+    const numericId = Number(character_id);
+    const char = gsheet.c[numericId];
+    if (!char) return;
+    const raceDisplay = char.hybrid ? (char.race + " (" + char.hybrid + ")") : (char.race || "—");
+
+    activeCharId = numericId;
+
+    document.getElementById("dossier-char-name").textContent = char.character || "UNKNOWN";
+    document.getElementById("dossier-player-name").textContent = char.player || "—";
+    document.getElementById("dossier-race").textContent = raceDisplay;
+    document.getElementById("dossier-origin").textContent = char.origin || "—";
+    document.getElementById("dossier-age").textContent = char.age || "—";
+    document.getElementById("dossier-height").textContent = char.height || "—";
+    document.getElementById("dossier-weight").textContent = char.weight || "—";
+    document.getElementById("dossier-advancement").textContent = char.advancement || "—";
+
+    const adv = Number(char.advancement) || 0;
+    char.rank = adv < 4 ? "Novice" : adv < 8 ? "Seasoned" : adv < 12 ? "Veteran" : adv < 16 ? "Heroic" : "Legendary";
+    document.getElementById("dossier-rank").textContent = char.rank;
+
+    const portraitElem = document.getElementById("char-portrait");
+    if (char.portrait) {
+      const src = char.portrait.trim();
+      const isUrl = src.startsWith("http://") || src.startsWith("https://") || src.startsWith("data:");
+      portraitElem.style.backgroundImage = 'url("' + (isUrl ? src : 'data:image/webp;base64,' + src) + '")';
+    } else {
+      portraitElem.style.backgroundImage = "none";
+    }
+
+    const attrContainer = document.getElementById("attributes-container");
+    attrContainer.innerHTML = "";
+    ["agility", "smarts", "spirit", "strength", "vigor"].forEach(attrName => {
+      const { die, flatMod } = getFinalAttribute(numericId, attrName);
+      let modDisplay = flatMod > 0 ? '<span class="attr-mod-plus">+' + flatMod + '</span>' : flatMod < 0 ? '<span class="attr-mod-minus">' + flatMod + '</span>' : "";
+
+      const card = document.createElement("div");
+      card.className = "attribute-card";
+      card.onclick = () => openInsight('attribute', attrName);
+      card.innerHTML = 
+        '<div>' +
+          '<div class="attr-header">' + attrName + '</div>' +
+          '<div class="attr-value-box"><span class="attr-die">' + die + '</span>' + modDisplay + '</div>' +
+        '</div>' +
+        '<div class="dice-slot">' + (dicesvg[die] || "") + '</div>';
+      attrContainer.appendChild(card);
+    });
+
+    renderDerivedStats(numericId);
+    navigateTo('screen-profile');
+  }
+
+  function renderDerivedStats(charId) {
+    const derivedContainer = document.getElementById("derived-container");
+    derivedContainer.innerHTML = "";
+
+    const stats = [
+      { id: "pace", label: "PACE" },
+      { id: "parry", label: "PARRY" },
+      { id: "toughness", label: "TOUGHNESS" },
+      { id: "armor", label: "ARMOR" },
+      { id: "encumbrance", label: "ENCUMBRANCE" },
+      { id: "strain", label: "STRAIN" }
+    ];
+
+    stats.forEach(s => {
+      const data = getDerivedStatValue(charId, s.id);
+      const card = document.createElement("div");
+      card.className = "derived-card";
+      card.onclick = () => openInsight('derived', s.id);
+      card.innerHTML = 
+        '<div class="derived-label">' + s.label + '</div>' +
+        '<div class="derived-value">' + data.displayVal + '</div>';
+      derivedContainer.appendChild(card);
+    });
+  }
+
+  // Unified Single Insight Dispatcher
+  function openInsight(category, identifier, rawRow = null) {
+    const builder = INSIGHT_CONFIG[category];
+    if (!builder) return;
+
+    const payload = builder(identifier, rawRow, activeCharId);
+
+    const charName = gsheet.c[activeCharId]?.character || "OPERATIVE";
+    document.getElementById("insight-title").innerHTML = payload.title + ' <span style="font-size:0.6em; color:#66fcf1; vertical-align:middle;">[' + charName + ']</span>';
+
+    const metaHTML = (payload.metadata && payload.metadata.length > 0)
+      ? '<div style="font-size:0.85rem; color:#66fcf1; font-family:\'Orbitron\'; margin-top:6px;">' + payload.metadata.join(" | ") + '</div>'
+      : "";
+
+    document.getElementById("insight-description").innerHTML = payload.description + ' ' + metaHTML;
+    document.getElementById("insight-math-breakdown").innerHTML = (payload.logs || []).join("");
+
+    const backBtn = document.getElementById("insight-back-btn");
+    if (backBtn) {
+      backBtn.onclick = payload.onBack || (() => goBack());
+    }
+
+    navigateTo("screen-insight");
+  }
+
+  // Unified Single Subcategory Dispatcher
+  function openSubCategory(subCat) {
+    currentSubCategory = subCat;
+
+    if (subCat === 'weapons_c') {
+      renderWeaponsList();
+      return;
+    }
+
+    const config = SUBCATEGORY_CONFIG[subCat];
+    if (!config) {
+      document.getElementById("sub-list-title").textContent = subCat;
+      document.getElementById("sub-list-content").innerHTML = '<p style="text-align:center; color:#888;">Module under construction.</p>';
+      navigateTo('screen-sub-list');
+      return;
+    }
+
+    const charName = gsheet.c[activeCharId]?.character || "OPERATIVE";
+    document.getElementById("sub-list-title").innerHTML = config.title + ' <span style="font-size:0.8em; color:#ff007f;">// ' + charName + '</span>';
+    const container = document.getElementById("sub-list-content");
+    container.innerHTML = "";
+
+    const items = config.getItems(activeCharId);
+    if (items.length === 0) {
+      container.innerHTML = '<p style="text-align:center; color:#888;">' + config.emptyMsg + '</p>';
+      navigateTo('screen-sub-list');
+      return;
+    }
+
+    const grid = document.createElement("div");
+    grid.style.cssText = "display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:15px; padding:20px; max-width:1000px; margin:0 auto;";
+
+    items.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "attribute-card";
+      card.style.height = config.cardHeight || "80px";
+      card.onclick = item.onClick;
+
+      card.innerHTML = 
+        '<div style="flex-grow:1; overflow:hidden; padding-right:10px;">' +
+          (item.header ? '<div style="font-size:0.75rem; color:' + (item.headerColor || '#66fcf1') + '; font-family:\'Orbitron\'; font-weight:bold; text-transform:uppercase;">' + item.header + '</div>' : '') +
+          '<div style="font-size:1rem; font-weight:bold; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">' +
+            item.title +
+          '</div>' +
+          (item.mainVal ? '<div class="attr-value-box"><span class="attr-die">' + item.mainVal + '</span>' + (item.subVal || '') + '</div>' : '') +
+          (item.footer ? '<div style="font-size:0.75rem; color:#aaa; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">' + item.footer + '</div>' : '') +
+        '</div>' +
+        '<div style="font-size:0.8rem; color:#ff007f; font-family:\'Orbitron\'; flex-shrink:0;">INSIGHT ▶</div>';
+      grid.appendChild(card);
+    });
+
+    container.appendChild(grid);
+    navigateTo('screen-sub-list');
+  }
+
+  // Weapons Table View
+  function renderWeaponsList() {
+    const charName = gsheet.c[activeCharId]?.character || "OPERATIVE";
+    document.getElementById("sub-list-title").innerHTML = 'TACTICAL ARSENAL <span style="font-size:0.8em; color:#ff007f;">// ' + charName + '</span>';
+    const container = document.getElementById("sub-list-content");
+    container.innerHTML = "";
+
+    const charWeapons = gsheet.weapons_c?.[activeCharId] || [];
+    if (charWeapons.length === 0) {
+      container.innerHTML = '<p style="text-align:center; color:#888;">No weaponry cataloged for this operative.</p>';
+      navigateTo('screen-sub-list');
+      return;
+    }
+
+    const tableWrapper = document.createElement("div");
+    tableWrapper.style.cssText = "width:100%; max-width:1050px; margin:0 auto; padding:15px; overflow-x:auto;";
+
+    let tableHTML = 
+      '<table style="width:100%; border-collapse:separate; border-spacing:0 8px; font-family:\'Roboto\', sans-serif; color:#fff;">' +
+        '<thead>' +
+          '<tr style="font-family:\'Orbitron\', sans-serif; font-size:0.75rem; color:#66fcf1; text-align:left; border-bottom:2px solid rgba(102, 252, 241, 0.4);">' +
+            '<th style="padding:10px 14px;">WEAPON SYSTEM</th>' +
+            '<th style="padding:10px 10px; text-align:center;">DAMAGE</th>' +
+            '<th style="padding:10px 10px; text-align:center;">AP</th>' +
+            '<th style="padding:10px 10px; text-align:center;">RANGE</th>' +
+            '<th style="padding:10px 10px; text-align:center;">ROF</th>' +
+            '<th style="padding:10px 10px; text-align:center;">AMMO</th>' +
+            '<th style="padding:10px 14px; text-align:right;">DOSSIER</th>' +
+          '</tr>' +
+        '</thead>' +
+        '<tbody>';
+
+    charWeapons.forEach((w) => {
+      if (!w.weapon) return;
+      const weaponName = ((w.brand || '') + ' ' + w.weapon + ' ' + (w.caliber ? '(' + w.caliber + ')' : '') + ' ' + (w.category || '')).trim();
+      tableHTML += 
+        '<tr class="weapon-row" onclick="openInsight(\'weapon\', \'' + weaponName.replace(/'/g, "\\'") + '\', gsheet.weapons_c[' + activeCharId + '][' + charWeapons.indexOf(w) + '])" style="background:rgba(10, 25, 47, 0.7); border:1px solid rgba(102, 252, 241, 0.2); border-radius:6px; cursor:pointer; transition:all 0.2s ease-in-out;">' +
+          '<td style="padding:12px 14px; font-weight:bold; color:#fff; font-size:0.95rem; ' + (w.mod_parent ? "padding-left:50px;" : "") + '">' +
+            '<img style="max-height:25px; width:auto; border:2px solid ' + (w.mod_parent ? "#cccccc" : "#cccc00") + ';" src="' + (w.picture || '') + '" /> ' +
+            weaponName +
+            '<div style="font-size:0.7rem; color:#aaa; font-weight:normal; margin-top:2px;">' + (w.source || "Standard Issue") + '</div>' +
+          '</td>' +
+          '<td style="padding:12px 10px; text-align:center;">' +
+            '<span style="background:rgba(102, 252, 241, 0.15); border:1px solid #66fcf1; color:#66fcf1; font-family:\'Orbitron\'; font-size:0.8rem; padding:2px 8px; border-radius:4px; font-weight:bold;">' + (w.damage || "—") + '</span>' +
+          '</td>' +
+          '<td style="padding:12px 10px; text-align:center; font-family:\'Orbitron\'; font-size:0.85rem; color:#ff007f; font-weight:bold;">' + (w.ap !== undefined && w.ap !== null && w.ap !== "" ? w.ap : "0") + '</td>' +
+          '<td style="padding:12px 10px; text-align:center; font-size:0.85rem; color:#ccc;">' + (w.range || "Melee") + '</td>' +
+          '<td style="padding:12px 10px; text-align:center; font-size:0.85rem; color:#ccc;">' + (w.rof || "1") + '</td>' +
+          '<td style="padding:12px 10px; text-align:center; font-size:0.85rem; color:#ccc;">' + (w.shots || "—") + '</td>' +
+          '<td style="padding:12px 14px; text-align:right; font-family:\'Orbitron\'; font-size:0.75rem; color:#ff007f; font-weight:bold;">SPEC ▶</td>' +
+        '</tr>';
+    });
+
+    tableHTML += '</tbody></table>';
+    tableWrapper.innerHTML = tableHTML;
+    container.appendChild(tableWrapper);
+
+    const styleTag = document.createElement("style");
+    styleTag.textContent = ".weapon-row:hover { background: rgba(102, 252, 241, 0.15) !important; box-shadow: 0 0 10px rgba(102, 252, 241, 0.3); transform: translateX(4px); }";
+    container.appendChild(styleTag);
+
+    navigateTo('screen-sub-list');
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape') goBack(); });
+    renderCharacterSelection();
+  });
+</script>

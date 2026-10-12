@@ -1,0 +1,168 @@
+source_type,source_id,to_modify,target,mod_type,mod_value,requirements,stackable,notes
+Race,Android,Hindrance,Outsider,tag,Major,,,Outsider Hindrance (Major)
+Race,Android,Skill,Academics,die,1,,,die step +1 to Academics Skill
+Race,Android,Attribute,Strength,die,1,,,die step +1 to Strength Attribute
+Race,Android,Edge,Driven,tag,Free,,,"Free, Driven Edge"
+Race,Android,Special Ability,Construct,tag,Free,,,Construct Special Ability: Free
+Race,Android,Special Ability,Dependency (Energy),tag,Free,,,Dependency (Energy) Special Ability: Free
+Race,Android,Special Ability,Environmental Weakness (Electricity),tag,Free,,,Environmental Weakness (Electricity) Special Ability: Free
+Race,Bioroid,Skill,Fighting,die,1,,,die step +1 to Fighting Skill
+Race,Bioroid,Skill,Shooting,die,1,,,die step +1 to Shooting Skill
+Race,Bioroid,Skill,Persuasion,die,1,,,die step +1 to Persuasion Skill
+Race,Bioroid,Hindrance,Ruthless,tag,Minor,,,Ruthless Hindrance (Minor)
+Race,Bioroid,Hindrance,Secret,tag,Major,,,Secret Hindrance (Major)
+Race,Bioroid,Attribute,Agility,die,1,,,die step +1 to Agility Attribute
+Race,Bioroid,Edge,Martial Artist,tag,Free,,,"Free, Martial Artist Edge"
+Race,Cyborg,Derived Statistic,Armor,modifier,6,,,+6 Modifier to Armor Derived Statistic
+Race,Cyborg,Special Ability,Armor Plating,tag,Free,,,Armor Plating Special Ability: Free
+Race,Cyborg,Special Ability,Hardy,tag,Free,,,Hardy Special Ability: Free
+Race,Cyborg,Special Ability,No Vital Organs,tag,Free,,,No Vital Organs Special Ability: Free
+Race,Cyborg,Hindrance,Outsider,tag,Minor,,,Outsider Hindrance (Minor)
+Race,Cyborg,Special Ability,Head Shot Weakness,tag,Free,,,Head Shot Weakness Special Ability: Free
+Race,Human 1.0,Edge,Any 1,tag,Meet Requirements,,,"Meet Requirements, Any 1 Edge"
+Race,Human 1.0,Edge,Strong Willed,tag,Free,,,"Free, Strong Willed Edge"
+Race,Human 2.0,Edge,Any 1,tag,Meet Requirements,,,"Meet Requirements, Any 1 Edge"
+Race,Human 2.0,Hindrance,Overconfident,tag,Major,,,Overconfident Hindrance (Major)
+Race,Human 2.0,Attribute,Vigor,die,1,,,die step +1 to Vigor Attribute
+Race,Human 2.0,Attribute,Smarts,die,1,,,die step +1 to Smarts Attribute
+Race,Biodog,Derived Statistic,Pace,modifier,4,,,+4 Modifier to Pace Derived Statistic
+Hybrid,Bear,Attribute,Strength,die,1,,,die step +1 to Strength Attribute
+Hybrid,Bear,Natural Weapon,Claws,tag,Str+d4,,,Claws Natural Weapon: Str+d4
+Hybrid,Bear,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Hybrid,Bear,Hindrance,Quirk,tag,Minor,,,Quirk Hindrance (Minor)
+Hybrid,Big Cat,Attribute,Agility,die,1,,,die step +1 to Agility Attribute
+Hybrid,Big Cat,Skill,Athletics,modifier,2,,,+2 Modifier to Athletics Skill
+Hybrid,Big Cat,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Hybrid,Big Cat,Hindrance,Quirk,tag,Minor,,,Quirk Hindrance (Minor)
+Hybrid,Big Cat,Natural Weapon,Claws,natural weapon,Str+d4,,,Claws Natural Weapon: Str+d4
+Hybrid,Canine,Derived Statistic,Pace,modifier,2,,,+2 Modifier to Pace Derived Statistic
+Hybrid,Canine,Skill,Notice,modifier,2,,,+2 Modifier to Notice Skill
+Hybrid,Canine,Skill,Survival,modifier,2,,,+2 Modifier to Survival Skill
+Hybrid,Canine,Edge,Loyal,tag,,,,", Loyal Edge"
+Hybrid,Capra,Natural Weapon,Horns,tag,Str+d6,,,Horns Natural Weapon: Str+d6
+Hybrid,Capra,Edge,Leaper,tag,,,,", Leaper Edge"
+Hybrid,Capra,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Hybrid,Capra,Hindrance,Quirk,tag,Minor,,,Quirk Hindrance (Minor)
+Hybrid,Delphinid,Special Ability,Semi-Aquatic,tag,Free,,,Semi-Aquatic Special Ability: Free
+Hybrid,Delphinid,Special Ability,Cold Resistance,tag,Free,,,Cold Resistance Special Ability: Free
+Hybrid,Delphinid,Skill,Athletics,modifier,2,Swimming in liquids,,"+2 Modifier to Athletics Skill, when Swimming in liquids"
+Hybrid,Delphinid,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Hybrid,Delphinid,Hindrance,Quirk,tag,Minor,,,Quirk Hindrance (Minor)
+Hybrid,Piscine,Special Ability,Aquatic,tag,Free,,,Aquatic Special Ability: Free
+Hybrid,Piscine,Skill,Athletics,modifier,2,Swimming in liquids,,"+2 Modifier to Athletics Skill, when Swimming in liquids"
+Hybrid,Piscine,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Hybrid,Reptilia,Natural Weapon,Bite,tag,Str+d4,,,Bite Natural Weapon: Str+d4
+Hybrid,Reptilia,Special Ability,True Regeneration,tag,Free,,,True Regeneration Special Ability: Free
+Hybrid,Rhino,Attribute,Strength,die,1,,,die step +1 to Strength Attribute
+Hybrid,Rhino,Natural Weapon,Horns,tag,Str+d6,,,Horns Natural Weapon: Str+d6
+Hybrid,Rhino,Derived Statistic,Size,1,1,,,Size Derived Statistic: 1
+Hybrid,Rhino,Hindrance,Quirk,tag,Minor,,,Quirk Hindrance (Minor)
+Hybrid,Rodentia,Attribute,Agility,die,1,,,die step +1 to Agility Attribute
+Hybrid,Rodentia,Edge,Hard to Kill,tag,Free,,,"Free, Hard to Kill Edge"
+Hybrid,Rodentia,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Hybrid,Rodentia,Hindrance,Greedy,hindrance,Minor,,,Greedy Hindrance (Minor)
+Edge,Hacker,Skill,Hacking,reroll,Free,,,Free reroll on Hacking rolls
+Edge,Mr. Fix-it,Skill,Repair,modifier,2,,,+2 Modifier to Repair Skill
+Edge,Martial Artist,Weapon,Str+die Unarmed,die,1,,,die step +1 to Str+die Unarmed Weapon
+Edge,Martial Artist,Skill,Fighting,modifier,1,striking with fist and feet natural weapons,,"+1 Modifier to Fighting Skill, when striking with fist and feet natural weapons"
+Edge,Brawler,Weapon,Str+die Unarmed,die,1,,,die step +1 to Str+die Unarmed Weapon
+Edge,Brawler,Derived Statistic,Toughness,modifier,1,,,+1 Modifier to Toughness Derived Statistic
+Edge,Brawny,Derived Statistic,Size,modifier,1,,,+1 Modifier to Size Derived Statistic
+Edge,Brawny,Derived Statistic,Toughness,die,1,,,die step +1 to Toughness Derived Statistic
+Edge,Trademark Weapon,Skill,Athletics,modifier,1,Unique Weapon Usage,,"+1 Modifier to Athletics Skill, when Unique Weapon Usage"
+Edge,Trademark Weapon,Skill,Fighting,modifier,1,Unique Weapon Usage,,"+1 Modifier to Fighting Skill, when Unique Weapon Usage"
+Edge,Trademark Weapon,Skill,Shooting,modifier,1,Unique Weapon Usage,,"+1 Modifier to Shooting Skill, when Unique Weapon Usage"
+Edge,Ambidextrous,Penalty,Off-Hand,penalty,ignore,,,Off-Hand Penalty: ignore
+Edge,Ambidextrous,Derived Statistic,Parry,stack,stack,"using two weapons, stack parry bonuses (if any) from both weapons",,"Parry Derived Statistic: stack, when using two weapons, stack parry bonuses (if any) from both weapons"
+Edge,Two-Fisted,Penalty,Multi-Action,penalty,ignore,Fighting Roll with Off Hand,,"Multi-Action Penalty: ignore, when Fighting Roll with Off Hand"
+Edge,Two-Gun Kid,Penalty,Multi-Action,penalty,ignore,Shooting Roll with Off Hand,,"Multi-Action Penalty: ignore, when Shooting Roll with Off Hand"
+Edge,Healer,Skill,Healing,modifier,2,,,+2 Modifier to Healing Skill
+Edge,Scholar,Skill,Academics,modifier,2,"Academics selected, ignore any other skill modifiers",,"+2 Modifier to Academics Skill, when Academics selected, ignore any other skill modifiers"
+Edge,Scholar,Skill,Battle,modifier,2,"Battle selected, ignore any other skill modifiers",,"+2 Modifier to Battle Skill, when Battle selected, ignore any other skill modifiers"
+Edge,Scholar,Skill,Occult,modifier,2,"Occult selected, ignore any other skill modifiers",,"+2 Modifier to Occult Skill, when Occult selected, ignore any other skill modifiers"
+Edge,Scholar,Skill,Science,modifier,2,"Science selected, ignore any other skill modifiers",,"+2 Modifier to Science Skill, when Science selected, ignore any other skill modifiers"
+Edge,Scholar,Skill,Any Other 1 Knowledge-type Skill,modifier,2,"""knowledge""-type skill selected, ignore any other skill modifiers",,"+2 Modifier to Any Other 1 Knowledge-type Skill Skill, when ""knowledge""-type skill selected, ignore any other skill modifiers"
+Edge,Nerves of Steel,Penalty,Wound,penalty,ignore 1,,,Wound Penalty: ignore 1
+Edge,Charismatic,Skill,Persuasion,reroll,Free,,,Free reroll on Persuasion rolls
+Edge,Command,Attribute,Spirit,modifier,1,Extras in Range (9m / 10yd),,"+1 Modifier to Spirit Attribute, when Extras in Range (9m / 10yd)"
+Edge,Danger Sense,Skill,Notice,modifier,2,Surprise rolls (page 108),,"+2 Modifier to Notice Skill, when Surprise rolls (page 108)"
+Edge,Danger Sense,Skill,Notice,modifier,2,Allowed Notice Rolls outside combat,,"+2 Modifier to Notice Skill, when Allowed Notice Rolls outside combat"
+Edge,Danger Sense,Skill,Notice,modifier,-2,Not Allowed Notice Rolls (ie getting sniped),,"-2 Modifier to Notice Skill, when Not Allowed Notice Rolls (ie getting sniped)"
+Edge,Gun Fu!,Skill,Shooting,modifier,2,using pistols against an adjacent target's Parry,,"+2 Modifier to Shooting Skill, when using pistols against an adjacent target's Parry"
+Edge,Gun Fu!,Derived Statistic,Pistol Damage,modifier,2,using pistols against an adjacent target's Parry,,"+2 Modifier to Pistol Damage Derived Statistic, when using pistols against an adjacent target's Parry"
+Edge,Block,Derived Statistic,Parry,modifier,1,,,+1 Modifier to Parry Derived Statistic
+Edge,Block,Derived Statistic,Gang Up,modifier,-1,defending,,"-1 Modifier to Gang Up Derived Statistic, when defending"
+Edge,Investigator,Skill,Research,modifier,2,"searching through desks for important papers, sift through stacks of junk mail for something of note, or spy obscured items from piles of junk or debris",,"+2 Modifier to Research Skill, when searching through desks for important papers, sift through stacks of junk mail for something of note, or spy obscured items from piles of junk or debris"
+Edge,Investigator,Skill,Notice,modifier,2,"searching through desks for important papers, sift through stacks of junk mail for something of note, or spy obscured items from piles of junk or debris",,"+2 Modifier to Notice Skill, when searching through desks for important papers, sift through stacks of junk mail for something of note, or spy obscured items from piles of junk or debris"
+Edge,Attractive,Skill,Persuasion,modifier,1,"if the target is attracted to his general type (gender, sex, species, etc.).",,"+1 Modifier to Persuasion Skill, when if the target is attracted to his general type (gender, sex, species, etc.)."
+Edge,Attractive,Skill,Performance,modifier,1,"if the target is attracted to his general type (gender, sex, species, etc.).",,"+1 Modifier to Performance Skill, when if the target is attracted to his general type (gender, sex, species, etc.)."
+Edge,Brave,Derived Statistic,Fear Checks,modifier,2,,,+2 Modifier to Fear Checks Derived Statistic
+Edge,Brave,Derived Statistic,Fear Table,modifier,-2,,,-2 Modifier to Fear Table Derived Statistic
+Edge,Fame,Skill,Persuasion,modifier,1,targets who are friendly and knows who  the character is  (a  Common  Knowledge  roll modified by how likely the individual is to know the celebrity).,,"+1 Modifier to Persuasion Skill, when targets who are friendly and knows who  the character is  (a  Common  Knowledge  roll modified by how likely the individual is to know the celebrity)."
+Special Ability,Infravision,Penalty,Bad Lighting,penalty,half,attacking targets that radiate warmth,,"Bad Lighting Penalty: half, when attacking targets that radiate warmth"
+Special Ability,Low Light Vision,Penalty,Dim Illumination,penalty,ignore,,,Dim Illumination Penalty: ignore
+Special Ability,Low Light Vision,Penalty,Dark Illumination,penalty,ignore,,,Dark Illumination Penalty: ignore
+Hindrance,Bad Luck,Derived Statistic,Session Bennies,modifier,-1,,,-1 Modifier to Session Bennies Derived Statistic
+Hindrance,Can't Swim,Skill,Athletics,modifier,-2,,,-2 Modifier to Athletics Skill
+Hindrance,Can't Swim,Derived Statistic,Pace,fixed,3,,,Pace Derived Statistic: 3
+Hindrance,Phobia,Derived Statistic,All Trait Rolls,modifier,-1,characters in the presence of their phobia,,"-1 Modifier to All Trait Rolls Derived Statistic, when characters in the presence of their phobia"
+Hindrance,Mean,Skill,Persuasion,modifier,-1,,,-1 Modifier to Persuasion Skill
+Cyberware,Kenta Cyber Dynamics Dreadnaught Cyber System,Attribute,Vigor,die,1,,,die step +1 to Vigor Attribute
+Cyberware,Kenta Cyber Dynamics Dreadnaught Cyber System,Derived Statistic,Toughness,modifier,2,,,+2 Modifier to Toughness Derived Statistic
+Cyberware,Kenta Cyber Dynamics Dreadnaught Cyber System,Derived Statistic,Toxin Resistance,resistance,4,airborn,,"Toxin Resistance Derived Statistic: 4, when airborn"
+Cyberware,Kenta Cyber Dynamics Dreadnaught Cyber System,Derived Statistic,Disease Resistance,resistance,4,airborn,,"Disease Resistance Derived Statistic: 4, when airborn"
+Cyberware,Kenta Cyber Dynamics Dreadnaught Cyber System,Derived Statistic,Poison Resistance,resistance,4,airborn,,"Poison Resistance Derived Statistic: 4, when airborn"
+Cyberware,ACME LMS LTD. Systems Support Computer,Skill,Hacking,modifier,2,,,+2 Modifier to Hacking Skill
+Cyberware,Chimera Synaptic Anti-Catalyst,Skill,Any 1,modifier,2,,,+2 Modifier to Any 1 Skill
+Cyberware,Chimera Synaptic Anti-Catalyst,Skill,Any 1,reroll,Free,,,Free reroll on Any 1 rolls
+Cyberware,Berger-Suisse Ocular Implant,Special Ability,Infravision,tag,Free,,,Infravision Special Ability: Free
+Cyberware,Berger-Suisse Ocular Implant,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Cyberware,ACME LMS LTD. Knowcomp,Skill,Any 1,die,2,New Skills,,"die step +2 to Any 1 Skill, when New Skills"
+Cyberware,Kenta Cyber Dynamics Shikanoko Visor,Skill,Notice,die,1,,,die step +1 to Notice Skill
+Cyberware,Kenta Cyber Dynamics Shikanoko Visor,Edge,Danger Sense,tag,Free,,,"Free, Danger Sense Edge"
+Cyberware,Benkei Bionics Synthetic Subdermal Sarashi,Derived Statistic,Armor,Modifier,2,,3,+2 Modifier to Armor Derived Statistic
+Cyberware,Benkei Bionics Synthetic Subdermal Sarashi lv2,Derived Statistic,Armor,Modifier,4,,3,+4 Modifier to Armor Derived Statistic
+Cyberware,Benkei Bionics Synthetic Subdermal Sarashi lv3,Derived Statistic,Armor,Modifier,6,,3,+6 Modifier to Armor Derived Statistic
+Cyberware,Act of God Integrated Battle Information System Rank 1,Edge,Gun Fu!,tag,Free,,,"Free, Gun Fu! Edge"
+Cyberware,Act of God Integrated Battle Information System Rank 2,Edge,Gun Fu!,tag,Free,,,"Free, Gun Fu! Edge"
+Cyberware,Act of God Integrated Battle Information System Rank 2,Edge,Block,tag,Free,,,"Free, Block Edge"
+Cyberware,Gxarha Izibhamu Smartgun System,Skill,Shooting,reroll,Free,"Specified Weapon, Stacks to Other Weapons",2,"Free reroll on Shooting rolls, when Specified Weapon, Stacks to Other Weapons"
+Cyberware,Chimera Industries GNOSys Augmentation,Attribute,Smarts,die,3,"Choose Major Hindrance: Delusional, Jealous, Phobia, Ruthless, Suspicious",,"die step +3 to Smarts Attribute, when Choose Major Hindrance: Delusional, Jealous, Phobia, Ruthless, Suspicious"
+Cyberware,Bastion Cybertech FloJo Cyber Legs,Derived Statistic,Pace,modifier,2,,,+2 Modifier to Pace Derived Statistic
+Cyberware,Bastion Cybertech FloJo Cyber Legs,Derived Statistic,Running,die,2,,,die step +2 to Running Derived Statistic
+Armor,UP Street Jacket,Skill,Intimidation,modifier,1,,,+1 Modifier to Intimidation Skill
+Cyberware,Hublot King Gold Persuader Wrist,Skill,Persuasion,die,1,,,die step +1 to Persuasion Skill
+Cyberware,Van Cleef Vintage Alhambra Allure Neck,Skill,Persuasion,die,1,,,die step +1 to Persuasion Skill
+Cyberware,Chanel Entice Visor,Skill,Notice,die,1,,,die step +1 to Notice Skill
+Cyberware,Better-U Self-Actualization Package,Attribute,Agility,die,1,,,die step +1 to Agility Attribute
+Cyberware,Better-U Self-Actualization Package,Attribute,Vigor,die,1,,,die step +1 to Vigor Attribute
+Cyberware,Fortitude Generic Street Augmentation ,Attribute,Strength,die,1,,,die step +1 to Strength Attribute
+Cyberware,Fortitude Generic Street Augmentation ,Attribute,Strength,modifier,-1,,,-1 Modifier to Strength Attribute
+Cyberware,Velocity Generic Street Augmentation ,Attribute,Agility,die,1,,,die step +1 to Agility Attribute
+Cyberware,Velocity Generic Street Augmentation ,Attribute,Agility,modifier,-1,,,-1 Modifier to Agility Attribute
+Cyberware,Spleen Generic Street Augmentation ,Attribute,Vigor,die,1,,,die step +1 to Vigor Attribute
+Cyberware,Spleen Generic Street Augmentation ,Attribute,Vigor,modifier,-1,,,-1 Modifier to Vigor Attribute
+Cyberware,The Boss Generic Street Augmentation ,Skill,Persuasion,modifier,1,,,+1 Modifier to Persuasion Skill
+Cyberware,The Boss Generic Street Augmentation ,Skill,Intimidation,modifier,-1,,,-1 Modifier to Intimidation Skill
+Cyberware,Streetware Grade Reflex Boost ,Attribute,Agility,die,1,,,die step +1 to Agility Attribute
+Cyberware,Yanjing Generic Cybereyes ,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Cyberware,Canine Cybereye,Special Ability,Low Light Vision,tag,Free,,,Low Light Vision Special Ability: Free
+Edge,Alertness,Skill,Notice,modifier,2,,,+2 Modifier to Notice Skill
+Edge,Menacing,Skill,Intimidation,modifier,2,,,+2 Modifier to Intimidation Skill
+Hindrance,Ugly,Skill,Persuasion,modifier,-1,Minor Hindrance,,"-1 Modifier to Persuasion Skill, when Minor Hindrance"
+Hindrance,Ugly,Skill,Persuasion,modifier,-2,Major Hindrance,,"-2 Modifier to Persuasion Skill, when Major Hindrance"
+Edge,Aristocrat,Skill,Persuasion,modifier,2,"Networking (see page 133) with the local elite, captains of industry, nobles, or other aristocrats",,"+2 Modifier to Persuasion Skill, when Networking (see page 133) with the local elite, captains of industry, nobles, or other aristocrats"
+Edge,Aristocrat,Skill,Common Knowledge,modifier,2,"made to know the etiquette of the upper class, recognize family trees or heraldry, or recall gossip concerning others of their station",,"+2 Modifier to Common Knowledge Skill, when made to know the etiquette of the upper class, recognize family trees or heraldry, or recall gossip concerning others of their station"
+Edge,Streetwise,Skill,Persuasion,modifier,2,made to Network (see page 133) with shady or criminal elements,,"+2 Modifier to Persuasion Skill, when made to Network (see page 133) with shady or criminal elements"
+Edge,Streetwise,Skill,Intimidation,modifier,2,made to Network (see page 133) with shady or criminal elements,,"+2 Modifier to Intimidation Skill, when made to Network (see page 133) with shady or criminal elements"
+Edge,Streetwise,Skill,Common Knowledge,modifier,2,pertaining to shady or criminal elements,,"+2 Modifier to Common Knowledge Skill, when pertaining to shady or criminal elements"
+Edge,Famous,Skill,Persuasion,modifier,2,influencing friendly individuals who know who he is,,"+2 Modifier to Persuasion Skill, when influencing friendly individuals who know who he is"
+Hindrance,Elderly,Derived Statistic,Pace,modifier,-1,,,-1 Modifier to Pace Derived Statistic
+Hindrance,Elderly,Derived Statistic,Running,modifier,-1,,,-1 Modifier to Running Derived Statistic
+Hindrance,Elderly,Attribute,Agility,modifier,-1,,,-1 Modifier to Agility Attribute
+Hindrance,Elderly,Attribute,Strength,modifier,-1,,,-1 Modifier to Strength Attribute
+Hindrance,Elderly,Attribute,Vigor,modifier,-1,,,-1 Modifier to Vigor Attribute
+Hindrance,Clueless,Skill,Common Knowledge,modifier,-1,,,-1 Modifier to Common Knowledge Skill
+Hindrance,Clueless,Skill,Notice,modifier,-1,,,-1 Modifier to Notice Skill
+Edge,Acrobat,Skill,Athletics,reroll,Free,"involve balance, tumbling, or grappling. It doesn’t affect rolls to interrupt actions, climb, swim, or throw.",,"Free reroll on Athletics rolls, when involve balance, tumbling, or grappling. It doesn’t affect rolls to interrupt actions, climb, swim, or throw."
+Hindrance,Outsider,Skill,Persuasion,modifier,-2,made to influence those who aren’t her own kind,,"-2 Modifier to Persuasion Skill, when made to influence those who aren’t her own kind"

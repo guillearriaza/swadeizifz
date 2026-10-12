@@ -1,0 +1,432 @@
+source_type,source_id,sourcebook,page,description,dimension_1,metric_1,metric_2
+Attribute,Agility,SWADE Core Rules,29,"Agility is a measure of a character’s nimble-ness, dexterity, and general coordination.",,,
+Attribute,Smarts,SWADE Core Rules,29,"Smarts measures raw intelligence, mental acuity, and how fast a heroine thinks on her feet. It’s used to resist certain types of mental and social attacks",,,
+Attribute,Spirit,SWADE Core Rules,29,"Spirit is self-confidence, backbone, and willpower.  It’s  used  to  resist  social  and  supernatural attacks as well as fear.",,,
+Attribute,Strength,SWADE Core Rules,29,"Strength is physical power and fitness. It’s also used as the basis of a warrior’s damage in hand-to-hand combat, and to determine how much he can wear or carry",,,
+Attribute,Vigor,SWADE Core Rules,29,"Vigor represents an individual’s endurance, resistance to disease, poison, or toxins, and how  much  physical  damage  he  can  take  before he can’t go on. It is most often used to resist Fatigue effects, and as the basis for the derived stat of Toughness.",,,
+Derived Statistic,Pace,SWADE Core Rules,10,"Pace is how fast your character moves in tactical situations like combat. Standard Pace is  6,  which  means  six  tabletop  inches  per  game  round.  Each  inch  is  two  yards  in  the  real world. Movement is explained in detail on page 92.",,,
+Derived Statistic,Parry,SWADE Core Rules,10,"Parry is equal to 2 plus half your character’s Fighting die type (a total of 2 if a character doesn’t have Fighting), plus any bonuses for shields or certain weapons. This is the Target Number (TN) to hit your hero in hand-to-hand combat.
+For Fighting skills higher than d12, such as d12+1, add half the fixed modifier, rounded down. For instance, Fighting d12 + 1  grants a Parry of 8, while Fighting d12 + 2  results in a Parry of 9.",,,
+Derived Statistic,Size,SWADE Core Rules,11,"Size: A hero’s default Size is 0 unless altered by racial abilities, Edges, or Hindrances. It cannot be less than −1 or more than +3.",,,
+Derived Statistic,Toughness,SWADE Core Rules,11,"Toughness  is  your  hero’s  damage  thres-hold.  Damage  rolls  that  equal  or  exceed  this number cause harm (explained later in Chapter Three).
+Toughness is 2 plus half your hero’s Vigor, plus  Armor  (use  the  armor  worn  on  his  torso — see  page  69).  Vigor  over  a  d12  is  calculated just like Parry, above.",,,
+Skill,Athletics,SWADE Core Rules,29,"Athletics  combines  an  individual’s  coordin-ation  with  learned  skills  such  as  climbing,  jumping, balancing, biking, wrestling, skiing, swimming, throwing, or catching. Characters who  rely  on  physical  power  more  than  coordination can take the Brute Edge (page 38)  to  link  this  skill  to  Strength  instead  of Agility.",Agility,,
+Skill,Common Knowledge,SWADE Core Rules,30,"Characters roll Common Knowledge to know people,  places,  and  things  of  their  world,  including  etiquette,  geography,  culture,  popular technology, contacts, and customs.",Smarts,,
+Skill,Notice,SWADE Core Rules,32,"Notice is a hero’s general awareness and alertness.  It’s  used  to  sense  sights,  sounds,  tastes, and smells, spot clues, detect ambushes, spot hidden weapons on a foe, or tell if a rival is lying, frightened, happy, etc.
+Success  conveys  basic  information — the  character  hears  movement  in  the  forest,  smells distant smoke, or senses someone isn’t being completely truthful.
+A  raise  grants  more  detail,  such  as  the  direction of a sound or odor or what topic a person is avoiding or lying about.",Smarts,,
+Skill,Persuasion,SWADE Core Rules,33,"Persuasion is the ability to convince others to do what you want through reason, cajoling, deception, rewards, or other friendly means. Persuasion isn’t mind control. It can change someone’s attitude but not their goals. A bandit may let you keep a sentimental piece of jewelry with a good Persuasion roll but still takes all your other goods.
+When  used  to  Support  allies  (page  106)  it’s an unopposed roll. If the target is resistant, it’s an opposed roll vs. the target’s Spirit. The GM should modify the roll as he sees fit based on roleplaying, any pertinent Edges or Hindrances that affect the conversation, and the circumstances.
+The Reaction rules are listed in page 33 of the SWADE Core Rulebook",Spirit,,
+Skill,Stealth,SWADE Core Rules,35,"Stealth is the ability to hide and move quietly. A simple success on a Stealth roll means the character avoids detection if enemies aren’t particularly  alert.  If  the  character  fails  the  roll, the enemy realizes something is amiss and begins actively searching for whatever roused them.
+Once foes are alerted and active, Stealth is opposed by Notice (a group roll if there are many foes, see page 89).
+The GM should apply any circumstantial penalties to Notice rolls for darkness, cover, noise, distractions, and any difference in the target’s Scale (just like when attacking, see Scale  on  page  106).  Sneaking  through  dry  leaves might subtract 2 from the Stealth roll, for example, while spotting someone in the dark uses the Illumination penalty listed on page 102 (−4). Don’t apply the same modifier to both rolls, however. If Stealth is at −2 for the leaves, don’t give Notice a +2 for them as well.
+Sneak Attack: Sneaking up close enough to make a melee attack always  requires  an  opposed  Stealth  roll  versus  the  target’s  Notice, whether the guard is actively looking for trouble or not. If successful, the victim is Vulnerable (page 100) to the attacker, but only  until  the  attacker’s  turn  ends.  With  a raise, the attacker has The  Drop  (page  100) instead.
+Movement:  In  combat,  characters  roll  Stealth each turn as a free action at the end of their move or any action the GM thinks might draw attention.
+Out of combat, the distance moved depends entirely on the situation. The GM might want a roll every minute if the group is sneaking around the perimeter of a defensive position, or every few miles if they’re trying to quietly walk the path through a dark forest without alerting the creatures that live there.",Agility,,
+Skill,Fighting,SWADE Core Rules,30,"Fighting  covers  all  hand-to-hand  (melee)  attacks, whether it’s with fists, axes, laser swords, or martial arts. See Chapter Three of the SWADE Core Rulebook for the combat rules and the various maneuvers a warrior might attempt",Agility,,
+Skill,Shooting,SWADE Core Rules,35,"Shooting covers all attempts to hit a target with a ranged weapon such as a bow, pistol, or  rocket  launcher  (thrown  weapons  use  Athletics,  page  29).  See  Chapter  Three  for  details on ranged combat. ",Agility,,
+Skill,Intimidation,SWADE Core Rules,31,"Intimidation  is  the  art  of  frightening  an  opponent  so  that  he  backs  down,  reveals  information, or flees.
+Intimidation is an opposed roll resisted by the opponent’s Spirit. In combat, this is a Test(see page 108). Out of combat, a successful roll means the foe backs down for the most part,  reveals  some  information,  or  slinks  away  when  the  opportunity  presents  itself.
+A raise might mean he backs down for the remainder of the scene, spills all the beans, or runs away as fast as he can.
+In  or  out  of  combat,  a  Critical  Failure  means the target is immune to this character’s Intimidation attempts for the remainder of this encounter!
+Networking: Intimidation can also be used as a “macro” skill to simulate several hours of working the streets. See Networking  on  page 133 to see how to crack some heads for favors or information.",Spirit,,
+Skill,Hacking,SWADE Core Rules,31,"Hacking is the skill used to create programs and “hack” into secured systems. Use of this skill always requires a computer or interface of some sort.
+Most tasks are a simple Hacking roll. The amount of time it takes is determined by the GM, from a single action to hours, days, or even months depending on the complexity of the project. Success means the attempt works as desired and a raise halves the time required. Failure usually just means the hacker must try again, while a Critical Failure may mean the system locks the user out, issues an alarm, or enacts another countermeasure of some sort.",Smarts,,
+Skill,Repair,SWADE Core Rules,34,"Repair is the ability to take apart and/or fix mechanical gadgets, vehicles, weapons, and simple  electrical  devices.  It  also  covers  the  use of demolitions and explosives.
+How long a Repair roll takes is up to the GM and the complexity of the task. Fixing a Wound on a compact car in a post-apocalyptic setting might take an hour. Fixing a Wound on the same car in the present day might take four hours if the character wants it painted, polished,  etc.  Success  means  the  item  is  functional. A raise on the Repair roll halves the time required.
+Tools: Characters suffer a minor penalty (−1 to −2) to their roll if they don’t have access to basic tools, or a major penalty (−3 to −4) if the device requires specialized equipment.
+Electronics: Repair can be used to repair electronic devices, but is limited by the hero’s Electronics skill. Use whichever skill is lowest.",Smarts,,
+Skill,Driving,SWADE Core Rules,30,"Driving allows a hero to control any powered ground vehicle common to his setting. This includes cars, motorcycles, tanks, and the like. (Bikes and other self-powered transports use Athletics, beast-drawn transports use Riding.)
+Characters  in  modern  settings  where  vehicles are ubiquitous don’t need Driving for ordinary travel. Driving rolls are typically only  needed  in  dangerous  or  stressful  conditions, such as Chases (page 113).",Agility,,
+Skill,Healing,SWADE Core Rules,31,"Healing  has  multiple  uses,  from  treating  Wounds to diagnosing diseases and analyzing certain kinds of forensic evidence.
+See  page  96  for  rules  on  mending  and  treating Wounds, and page 128 for treatment of disease or poison.
+Forensics:  Healing  can  also  be  used  to  analyze evidence that relates to anatomical trauma,  including  cause  and  time  of  death,  angle of attack, and similar matters. Success provides  basic  information  and  a  raise  increases the details uncovered.",Smarts,,
+Skill,Science,SWADE Core Rules,34,"Those  with  this  skill  have  studied  various  hard sciences such as biology, xenobiology, chemistry, geology, engineering, or any other “hard” science
+A  successful  Science  roll  reveals  basic  information about a topic, and a raise grants more details.",Smarts,,
+Skill,Research,SWADE Core Rules,34,"A character skilled in Research knows how to  make  good  use  of  libraries,  newspaper  morgues,  the  internet,  or  other  written  sources of information.
+The amount of time this takes is up to the GM and the situation. Finding something on the internet or a specific passage in a book might be possible in a combat round. Looking through  books  in  a  library,  searching  the  internet for a complex topic, or digging up background  information  on  an  individual  usually takes about an hour.
+Success finds basic information and a raise provides  more  detail.  Failure  means  the  researcher doesn’t find what she’s looking for.
+A Critical Failure might mean the researcher finds  plausible  but  incorrect  information,  triggers  the  notice  of  some  opposed  entity  or faction, reads something “Humanity Was Not Meant to Know” and suffers a mental illness of some sort (a Minor Phobia, Quirk, etc.), or he might even accidentally destroythe  source.  The  GM  is  encouraged  to  be  creative when such a mishap occurs, perhaps forcing the party to approach the situation in a different way.
+Related Skills: If a character has a skill that relates directly to the subject he’s researching, he  can  use  that  instead  of  Research.  An  explorer  with  Occult  d10  and  Research  d6,  for example, rolls a d10 when investigating vampire lore at a forgotten library. If he later goes to search for the deed to a house where the vampires are rumored to lair, he rolls his normal Research instead.
+Note: Research may only provide the clues, especially in a mystery-heavy game. Putting the  clues  together  from  the  information  gathered is up to the players.",Smarts,,
+Skill,Taunt,SWADE Core Rules,35,"Taunt attacks a person’s pride through ridicule, cruel jests, or oneupmanship.
+Taunt  is  an  opposed  roll  resisted  by  the  opponent’s Smarts. In combat, this is a Test(see page 108). 
+Out of combat, success means the defender backs down, slinks away, or starts a fight. A raise  might  leave  the  victim  cowed  for  the  remainder of the scene, or make her storm out  of  the  area  fuming  or  even  in  tears,  or  attack her tormentor recklessly (perhaps with a Wild Attack on the first round of combat).
+A  Critical  Failure  means  the  target  is  immune  to  this  character’s  Taunts  for  the  remainder of the encounter.",Smarts,,
+Skill,Performance,SWADE Core Rules,32,"A good entertainer can lift the spirits, rally a crowd to action, or simply earn a few bucks from  the  locals.  Specifics  depend  on  the  situation, setting, and how well the character is known in the area.
+Performance covers singing, acting, playing an instrument, or similar tasks that require an audience to appreciate.
+Raising  Funds:  The  amount  of  money  a  character can raise by performing is extremely subjective, but as a general rule a successful performance raises 20% of the setting’s Starting Funds with a success and 30% with a  raise.  The  GM  can  multiply  this  amount  by  the  performer’s  Rank  if  he  feels  it’s appropriate. These numbers work for typical performers who might be known in a small establishment or area. Larger performances can greatly boost the performer’s fee, but also require more time, energy, and setup.
+Deception:  Performance  can  be  used  instead  of  Persuasion  if  the  character  is  attempting  to  deceive,  bluff,  or  disguise  herself and the GM agrees it makes sense in the context of the situation.",Spirit,,
+Skill,Academics,SWADE Core Rules,29,"Academics reflects knowledge of the liberal arts, social sciences, literature, history, archaeology, and similar fields. If an explorer wants to remember when the Mayan calendar ended or cite a line from Macbeth, this is the skill to have.",Smarts,,
+Skill,Battle,SWADE Core Rules,29,Battle is an individual’s command of strategy and tactics. It can be used for general military knowledge and is critical when commanding troops in Mass Battles (see page 131).,Smarts,,
+Skill,Electronics,SWADE Core Rules,30,"Electronics allows a hero to use complex or specialized devices such as the control panels on industrial machines or the sensor systems found on spaceships in futuristic settings.
+Consumer or electronic devices common to the setting don’t require Electronics—Common Knowledge suffices if a roll is required at all. In the modern world, this applies to video recorders, cell phones, etc.
+Fixing any type of broken electronic device uses the Repair skill (see page 34).",Smarts,,
+Skill,Gambling,SWADE Core Rules,30,"Gambling is common in the saloons of the Old West, the back rooms of criminal organizations, the barracks of most armies, or the flight decks of scifi spaceships.
+To simulate an hour of gambling without having to roll for every single toss of the dice or hand of cards, have everyone agree on the stakes, such as $10, 10 gold coins, etc. 
+Everyone in the game then makes a Gambling roll. The lowest total pays the highest total the difference times the stake. The next lowest pays the second highest the difference times the stake, and so on. If there’s an odd man left in the middle, he breaks even.
+Example: Red rolls highest with a 10 and Gabe rolls lowest with a 4. The difference is 6, so Gabe pays Red 6 × the stake of $10, or $60.
+Cheating: A character who cheats adds +2 to his roll. The GM may raise or lower this modifier depending on the particulars of the game or the method of cheating. If a cheater rolls a Critical Failure, however, he’s caught. The consequences depend on the circumstances and who noticed, but are usually unpleasant!",Smarts,,
+Skill,Piloting,SWADE Core Rules,33,"Piloting allows a character to maneuver airplanes, helicopters, jet packs, or spaceships. Rules for Chases and vehicular combat can be found in Chapter Four.
+A being with the innate ability to fly (he has wings, for example) uses Athletics instead.",Agility,,
+Skill,Riding,SWADE Core Rules,34,"Riding allows a hero to mount, control, and ride any beast or beast-drawn vehicle common to his setting. This includes horses, camels, dragons, wagons, chariots, and the like. See the rules for Mounted Combat on page 103.",Agility,,
+Skill,Survival,SWADE Core Rules,35,"Survival allows a character to find food, water, or shelter in hostile environments. It can also be used to navigate wilderness environments, figure out which plants are good to eat and which aren’t, and so on.
+A successful Survival roll provides enough food and water for one person for one day; or five people with a raise.
+More detailed information on Hunger and Thirst can be found under Hazards on page 125.
+Tracking: Survival can also be used to detect and follow tracks. Each roll generally covers following the tracks for one mile, but the GM should adjust this as needed for specific circumstances.
+The Game Master should assign a bonus or penalty based on the target, environment, and time. Tracking a large group that recently passed through a snow-covered area might grant a bonus of +4, while following a single person over rocks and streams after more than a day incurs a −4 penalty.",Smarts,,
+Skill,Thievery,SWADE Core Rules,36,"Lockpicking, safecracking, picking pockets, sleight of hand, setting and disabling traps and similar acts of misdirection, sabotage, subterfuge, and manipulation are called Thievery.
+If used to pick a lock, crack a safe, disable a trap, or perform a simple unopposed action, success opens or disables the device, and a raise does it in less time, without tripping alarms, or whatever else the GM feels is appropriate.
+Sleight of hand, hiding or planting an item, or picking a pocket require a simple success. If foes are actively watching the character, Thievery is opposed by Notice.
+The Game Master should assign penalties for particularly difficult circumstances. Picking a heavy padlock might have a −4 penalty, while hiding a revolver in bulky winter clothing might grant a +1 bonus. Failure typically means the character is spotted or it takes too much time (after which the character can try again). A Critical Failure typically sets off the trap, alerts the victim, or jams the device so that it must be opened or interacted with in a different way.
+Limited: Using Thievery on an electronic device, such as a keypad, is limited by the thief’s Electronics skill. Use the lowest of the two skills.",Agility,,
+Edge,Hacker,Interface Zero 3.0 - The Players Guide to 2095,38,The Hacker gets one free Reroll on Hacking to gain access to a network or Tendril Access Processor or when counter hacking an intrusion attempt on a system being monitored.,"Novice
+Smarts d6
+Hacking d6",,
+Edge,McGyver,SWADE Core Rules,49,"A  McGyver  can  improvise  a  device  from  common  resources  when  the  need  arises.  Given  a  few  simple  items,  he  can  make  a  Repair  roll  to  craft  improvised  weapons,  explosives, or tools, that last until used or the end of the encounter (GM’s call). This takes one entire turn, and he can’t move or take any other actions while constructing the device.
+Failure  means  the  device  isn’t  ready.  A  Critical  Failure  means  he  doesn’t  have  the  right  materials  and  can’t  create  the  device  this encounter.
+Success  creates  a  minor  explosive  (2d4  explosive in a Small Blast Template), a one shot projectile weapon like a “zip gun” (Range 5/10/20, Damage 2d6), rickety raft, electrical source, etc
+A raise creates a larger explosive (2d6 in a Medium Blast Template or 2d4 in a Large), a better ranged weapon (five shots, 2d8 damage, Range 10/20/40), a more stable raft, a more powerful battery, etc
+The  quality  or  power  of  the  creation  is  completely  up  to  the  Game  Master,  but  creativity should be rewarded, particularly in the most dire and dramatic situations.","Novice
+Smarts d6
+Notice d8
+Repair d6",,
+Edge,Mr. Fix-it,SWADE Core Rules,49,"The mechanic adds +2 to Repair rolls. With a raise, he halves the time normally required to fix something. This means if a particular Repair job says a raise repairs it in half the time, a Mr. Fix It can finish the job in one-quarter the time with a raise.","Novice
+Repair d8",,
+Edge,Martial Artist,SWADE Core Rules,43,"The fighter has trained in basic martial arts. Fists and feet are Natural Weapons so is always considered armed. Adds +1 when striking with them and causes Strength+d4 damage. If already has a Strength damage die from the Claws racial ability or the Brawler Edge, increase the damage a die type.
+Martial Artist does not add to damage from other Natural Weapons such as fangs or horns.","Novice
+Fighting d6",,
+Edge,Brawler,SWADE Core Rules,41,"His fists hit like hammers or his talons cut like scythes. His body feels like it’s made of stone. Brawlers increase their Toughness by 1 and roll Strength +d4 when hitting with their fists or feet (or claws if they have them). If they already have a damage die from Claws (page 18), the Martial Artist Edge, etc., increase the damage die type by one instead. The Brawler Edge doesn’t make the character’s fists Natural Weapons (page 104).","Novice
+Strength d8
+Vigor d8",,
+Edge,Brawny,SWADE Core Rules,38,"Your bruiser is very large or very fit. Her Size increases  by  +1  (and  therefore  Toughness  by 1) and he treats her Strength as one die type higher when determining Encumbrance  and  Minimum  Strength  to  use  armor, weapons, and equipment without a penalty.
+Brawny  can’t  increase  a  character’s  Size  above +3","Novice
+Strength d6
+Vigor d6",,
+Edge,Trademark Weapon,SWADE Core Rules,44,"The   hero   knows   one   unique   weapon   (Excalibur, Old Betsy, Sting) like the back of his  hand.  When  using  it,  he  adds  +1  to  his  Athletics  (throwing),  Fighting,  or  Shooting  rolls, and +1 to Parry when readied (even if it’s a ranged weapon).
+A fighter can take this Edge multiple times, applying it to a different weapon each time. If a Trademark Weapon is lost, he can replace it but the benefits don’t kick in for a few days (however long the GM feels is dramatically appropriate).","Novice
+Skill with chosen weapon of d8+",,
+Edge,Ambidextrous,SWADE Core Rules,37,"Your warrior is as deft with his left hand as he is with his right. He ignores the Off-Hand penalty.
+If holding a weapon in each hand, Ambi-dextrous characters may stack Parry bonuses (if any) from both weapons.","Novice
+Agility d8",,
+Edge,Two-Gun Kid,SWADE Core Rules,44,"Two-Gun Kid works just like Two-Fisted (If a character makes a Fighting attack with one action and another from a different hand in a later action, the second attack doesn’t inflict a Multi-Action penalty. The Off-Handpenalty still applies unless he’s Ambidextrous, however), but  with  ranged  weapons,  allowing  her  to  fire or throw a weapon in each hand as two different actions but without triggering a Multi-Action penalty.
+If the character has Two-Fisted, the second action may also be a melee attack.","Novice
+Agility d8",,
+Edge,Healer,SWADE Core Rules,52,"A hero with this Edge adds +2 to all Healing rolls, whether natural or magical in nature.","Novice
+Spirit d8",,
+Edge,Scholar,SWADE Core Rules,49,"Learned professors, devoted students, and amateur enthusiasts spend great amounts of time and energy studying particularsubjects. They become experts in these fields, and rarely fail to answer questions in their particular area of expertise.
+Pick any one of the following skills: Academics, Battle, Occult, Science, or a Smarts-based “knowledge”-type skill allowed in your setting, and add +2 to the total whenever they’re used.
+This Edge may be taken more than once if applied to different skills.","Novice
+Research d8",,
+Edge,Nerves of Steel,SWADE Core Rules,43,Your hero has learned to fight on through the most intense pain. He may ignore 1 point of Wound penalties.,"Novice
+Vigor d8",,
+Edge,Charismatic,SWADE Core Rules,38,"Your hero is likable for some reason. May be trustworthy or kind, or might just exude confidence and goodwill. You get one free reroll on Persuasion rolls.","Novice
+Spirit d8",,
+Edge,Command,SWADE Core Rules,45,Command is the basic ability to give clear instructions and support to allies in the thick of battle. Extras in command Range (10 yards / 9m) add +1 to their Spirit rolls when attempting to recover from being Shaken and Vigor when attempting to recover from being Stunned,"Novice
+Smarts d6",,
+Edge,Connections,SWADE Core Rules,50,"Your heroine is connected to people or organizations  who  can  help  her  when  the  chips are down. It might be the mob, the Feds, a union, or even other adventurers.
+Connections may be taken more than once, selecting a new faction or contact each time. Once per session, and assuming he can get in touch with them, the heroine can call on her friends for a favor.
+The  favor  depends  on  the  nature  of  the  contact (GM’s call), but might include a loan, gear, a few allied fighters, transportation, information,  or  even  a  professional  with  critical  skills  the  party  doesn’t  have,  like  a  hacker or scholar.",Novice,,
+Edge,Fame,SWADE Core Rules,39,"Your character is a minor celebrity of some sort. he might be a popular bard known in a particular fiefdom, a minor rock star, or a beloved B-movie actor.
+She  makes  double  the  normal  fee  when  performing for pay (see Performance, page 32). he can also use her celebrity to add +1 to Persuasion rolls if a target is friendly and knows  who  he  is  (a  Common  Knowledge  roll modified by how likely the individual is to know the celebrity).
+The downside of Fame is that the individual is often recognized, others frequently want something  from  her,  he  may  be  followed  by fans or admirers, or he may not be able to shirk obligations, performances, or other duties without causing trouble for herself",Novice,,
+Edge,Two-Fisted,SWADE Core Rules,44,"If a character makes a Fighting attack with one action and another from a different hand in a later action, the second attack doesn’t inflict a Multi-Action penalty. The Off-Handpenalty still applies unless he’s Ambidextrous, however (page 104).
+If  the  character  has  Two-Gun  Kid,  the  second action may also be a ranged attack.","Novice
+Agility d8",,
+Edge,Danger Sense,SWADE Core Rules,52,"Your hero can sense when something bad is about to happen. When rolling for Surprise(page 108), he adds +2 to his Notice roll to act in the first round. With a raise, he starts the encounter on Hold.
+In  other  situations  not  covered  by  the  Surprise  rules  (a  sniper  shot,  pit  trap,  poisoned  drink,  etc.),  Danger  Sense  gives  him a Notice roll at −2 (or +2 if a Notice roll is usually allowed) to detect the hazard and take appropriate action. If this was an attack and the hero makes his Notice roll, the foe doesn’t get The Drop against him.",Novice,,
+Edge,Gun Fu!,Interface Zero 3.0 - The Players Guide to 2095,37,"Heavily trained in close quarters gunplay, this character knows gun fu. When using pistols against  a  target’s  Parry,  he  has  +2  to  Shooting  and +2 to pistol damage. This benefit only applies to such close range combat, not to attacks from further than adjacent.","Novice
+Marial Artist
+Fighting d6
+Shooting d6",,
+Edge,Block,SWADE Core Rules,40,Through hard-fought experience your hero has  learned  to  defend  himself  in  vicious  hand-to-hand  combat.  His  Parry  increases  by +1 and any Gang Up bonus against him is reduced by one.,"Seasoned
+Fighting d8",,
+Edge,Brave,SWADE Core Rules,37,"Those with this Edge have learned to master their fear, or have dealt with so many horrors they’ve become jaded. These valiant explorers add  +2  to  Fear  checks  and  subtract  2  from  Fear Table results (see page 124).","Novice
+Spirit d6",,
+Edge,Attractive,SWADE Core Rules,37,"It’s  no  secret  people  are  more  willing  to  help those they find physically attractive. Your character adds +1 to Performance and Persuasion rolls if the target is attracted to his general type (gender, sex, species, etc.).","Novice
+Vigor d6",,
+Edge,Investigator,SWADE Core Rules,48,"Investigators  spend  a  great  deal  of  time  researching  ancient  legends,  working  the  streets,  or  deducing  devilish  mysteries.  Some  of  these  heroes  are  actual  private  investigators  while  others  are  sleuthing  mages  in  a  fantasy  world  or  inquisitive  college  professors  stumbling  upon  Things  Man Was Not Meant to Know.
+Investigators add +2 to Research rolls and Notice rolls made to search through desks for important papers, sift through stacks of junk mail for something of note, or spy obscured items from piles of junk or debris.","Novice
+Smarts d8
+Research d8",,
+Edge,Jack-Of-All-Trades,SWADE Core Rules,49,"Through advanced schooling, book-learning, computer-enhanced skill programs, or just amazing intuitive perception, your hero has a talent for picking up skills on the fly. There’s little he can’t figure out given a little time and a dash of luck.
+The  character  makes  a  Smarts  roll  as  an  action  after  observing  or  studying  some  subject. he gains a d4 in the relevant skill with success, or d6 with a raise. he may try again after an hour of study, trial and effort, or immersion if he fails or wants to try for a raise. This lasts until the character attempts to learn a different subject, whether she’s successful or not.","Novice
+Smarts d10",,
+Edge,Elan,SWADE Core Rules,29,"Elan means energy or spirit. Those who have it rise to the occasion when the going gets toughest. When you spend a Benny to reroll a Trait, add +2 to the total. The bonus applies only when rerolling. It doesn’t apply to damage rolls (since they’re not rait rolls), nor does it apply to Soak rolls unless you’re using another Benny to reroll the Vigor check.","Novice
+Spirit d8",,
+Edge,Alertness,SWADE Core Rules,37,"Not much gets by this hero. He’s very observant and perceptive, and adds +2 to his Notice rolls to hear, see, or otherwise sense the world around him.",Novice,,
+Edge,Aristocrat,SWADE Core Rules,37,"This individual was born into privilege or came into it later in life. he may or may not have money (the Rich or Filthy Rich Edge), but he still walks in the elite social circles of the setting.
+Aristocrats add +2 to Persuasion when Networking (see page 133) with the local elite, captains of industry, nobles, or other aristocrats. They also add +2 to Common Knowledge rolls made to know the etiquette of the upper class, recognize family trees or heraldry, or recall gossip concerning others of their station.",Novice,,
+Edge,Dead Shot,SWADE Core Rules,41,"When your Action Card is a Joker, double the total damage of your first successful Athletics (throwing) or Shooting roll this round.","Wild Card
+Novice
+Athletics or Shooting d8+",,
+Edge,Extraction,SWADE Core Rules,41,"When a character withdraws from melee, adjacent attackers get a free Fighting attack against him (see Withdrawing from Melee on page 109). This is a very dangerous proposition for most, but not your wily champion.
+When moving away from adjacent foes, one of them (player’s choice), doesn’t get his free Fighting attack.","Novice
+Agility d8+",,
+Edge,First Strike,SWADE Core Rules,42,"Once per round, as long as he’s not Shaken or Stunned, the hero gets a free Fighting attack against a foe immediately after he moves into Reach. (See Free Attacks on page 101).","Novice
+Agility d8+",,
+Edge,Hard to Kill,SWADE Core Rules,42,This adventurer has more lives than a herd of cats. He may ignore his Wound penalties when making Vigor rolls to avoid Bleeding Out (see page 95).,"Novice
+Spirit d8+",,
+Edge,Menacing,SWADE Core Rules,50,Being a brutish lout isn’t always a drawback if you know how to use it. Menacing allows a character to put her bad looks or worse attitude to good use. The goon adds +2 to her Intimidation rolls.,"Novice
+Any one of Bloodthirsty, Mean, Ruthless, or Ugly",,
+Edge,Rich,SWADE Core Rules,40,"Whether the individual was born with a silver spoon in his mouth or earned it through hard work, he’s got more money than most.
+Rich heroes start with three times the normal starting funds for the setting. If a regular income is appropriate for this setting, the hero receives the modern-day equivalent of a $150,000 annual salary.",Novice,,
+Edge,Filthy Rich,SWADE Core Rules,40,"This fortunate individual is very wealthy. He has five times the starting funds for the setting during character creation and, if appropriate, a yearly income after responsibilities of around $500,000.
+Even wealthier characters may exist, but unless there’s a game effect it probably shouldn’t matter. This should be worked out with the GM and come with many more assets as well as onerous responsibilities.","Novice
+Rich",,
+Edge,Strong Willed,SWADE Core Rules,51,Self-confidence is powerful armor against those who attempt to attack this individual’s will. He adds +2 to his total when resisting Tests with Smarts or Spirit.,"Novice
+Spirit d8+",,
+Edge,Streetwise,SWADE Core Rules,51,"Streetwise characters know how to find the local black market, fence stolen goods, avoid the local law (or criminal element!), lay low when the heat’s on, obtain illegal weapons, find out which “boss” is hiring muscle, or similar shady activities.
+Streetwise characters add +2 to Intimidation or Persuasion rolls made to Network (see page 133) with shady or criminal elements. They also add +2 to Common Knowledge rolls pertaining to the types of disreputable activities listed above.","Novice
+Smarts d8+",,
+Edge,Reliable,SWADE Core Rules,51,People know they can depend on your hero when they need assistance. He gets a free reroll on any Support roll.,"Novice
+Spirit d8+",,
+Edge,Inspire,SWADE Core Rules,45,"Exceptional leaders inspire those around them to great feats of valor and determination. Once per turn, the hero may roll his Battle skill to Support one type of Trait roll, and apply it to all allied Extras in Command Range. A leader could Support all Shooting attacks in range, for example, or all Spirit rolls to recover from being Shaken.
+Inspire is an action and requires some sort of communication with those it affects.","Seasoned
+Command",,
+Edge,Famous,SWADE Core Rules,39,"Your hero is truly famous. She’s wellknown in a large circle such as a country, a large industry, or a popular medium (film or television, the music industry). he makes 5× the normal fee when performing and adds +2 to Persuasion rolls when influencing friendly individuals who know who he is.
+The price is higher for the truly Famous, too, with more demands on her time, obligations, rivals, scandals, and an inability to operate in crowds without being recognized.","Seasoned
+Fame",,
+Edge,Command Presence,SWADE Core Rules,45,"A booming voice, effective commands, natural charisma, or simple training results in a much more effective combat element. A hero with this Edge has a Command Range of 10″ (20 yards).","Seasoned
+Command",,
+Edge,Common Bond,SWADE Core Rules,50,"Selfless heroes and determined leaders know their greatest strength often comes from their companions, and are willing to give some of their own fortune, fate, or luck to support them.
+A character with this Edge may freely give her Bennies to any other character he can communicate with. The player should explain what form this takes, from a quick shout of encouragement to a welcome pat on the back.","Wild Card
+Novice
+Spirit d8+",,
+Edge,Calculating,SWADE Core Rules,41,"A few seconds to study your foe’s actions gives your hero a major advantage. When his Action Card is a Five or less, he ignores up to 2 points of penalties on one action that turn, which can include Multi-Action, cover, Range, and even Wound penalties.","Novice
+Smarts d8+",,
+Edge,Work the Room,SWADE Core Rules,51,"Your hero’s words don’t just inspire those they’re directed at—they often inspire others as well. Once per turn, you can use Work the Room to roll an additional skill die when Supporting with Persuasion or Performance.
+The additional die Supports any other ally who can see or hear your hero, and applies to their next action, whatever it may be.","Novice
+Spirit d8+",,
+Edge,Work the Crowd,SWADE Core Rules,51,As Work the Room but the hero now can Support another on up to two of her Support actions.,"Seasoned
+Work the Room",,
+Edge,Level Headed,SWADE Core Rules,43,Fighters who can keep their cool when everyone else is running for cover make deadly combatants. A hero with this Edge draws an additional Action Card in combat and chooses which to use.,"Seasoned
+Smarts d8+",,
+Edge,Improved Level Headed,SWADE Core Rules,43,As above but the hero draws two additional cards and chooses which to keep.,"Seasoned
+Level Headed",,
+Edge,Tactician,SWADE Core Rules,45,"The commander has a natural grasp of small unit tactics and can take advantage of rapidly changing situations.
+A Tactician is dealt an extra Action Card each round of combat or a chase—kept separate from his own cards. At the start of the round, he may discard it or give it to any one allied Extra in Command Range. The player or GM controlling the receiving character can decide whether to accept and replace her current Action Card, or discard it.","Seasoned
+Smarts d8+
+Command
+Battle d6+",,
+Edge,Natural Leader,SWADE Core Rules,45,"This leader has proven herself time and time again, gaining the respect of all those who fight by her side.
+Any Leadership Edge that says it applies only to Extras now applies to Wild Cards as well.","Seasoned
+Spirit d8+
+Command",,
+Edge,Acrobat,SWADE Core Rules,48,"The Acrobat gets one free reroll on Athletics totals that involve balance, tumbling, or grappling. It doesn’t affect rolls to interrupt actions, climb, swim, or throw.","Novice
+Agility d8+
+Athletics d8+",,
+Edge,Ace,SWADE Core Rules,47,"Aces are pilots and drivers who have a special affinity with their car, boat, plane, or other vehicle. They ignore two points of penalties to any Boating, Driving, or Piloting roll, and may spend Bennies to Soak damage for any vehicle they control or command, using the appropriate Boating, Driving, or Piloting skill instead of Vigor. Each success and raise negates a Wound.","Novice
+Agility d8+",,
+Edge,Fast Healer,SWADE Core Rules,39,"Those with this blessing add +2 to Vigor rolls for natural healing, and check every three days instead of five (see Healing, page 96).","Novice
+Vigor d8+",,
+Edge,Feint,SWADE Core Rules,42,"When performing a Test (page 108) with the Fighting skill, you can choose to make the foe resist with Smarts instead of Agility.","Novice
+Fighting d8+",,
+Hindrance,Overconfident,SWADE Core Rules,26,"There’s nothing out there your hero can’t defeat. At least that’s what he thinks. He believes he can do most anything and never wants to retreat from a challenge. He’s not suicidal, but he certainly takes on more than common sense dictates.",Major,,
+Hindrance,Obligation,SWADE Core Rules,25,"Your hero has a responsibility he must attend to on a daily or regular basis. It could be a job, volunteer work, taking care of family or friends, etc.
+The Obligation consumes about 20 hours most weeks, or 40+ for the Major version. Exactly what that entails should be discussed between the player and the Game Master.",Minor or Major,,
+Hindrance,Cautious,SWADE Core Rules,23,This planner personifies restraint and carefulness. He never makes rash decisions and likes to plot things out in detail long before any action is taken.,Minor,,
+Hindrance,Habit,SWADE Core Rules,24,"Your warrior has an annoying or dangerous compulsion.  A  Minor  Habit  irritates  those  around her but isn’t dangerous. Maybe he picks her nose, can’t stop fiddling with her phone, says “y’know” in the middle of every sentence,  or  chews  and  smacks  her  gum  loudly and often. Allies avoid her if possible.
+A Major Habit is a physical or mental addiction  of  some  sort  that  is  debilitating  or possibly even deadly. This includes drug use,  chronic  drinking,  or  perhaps  even  an  addiction  to  virtual  reality  in  a  high-tech setting.
+An addict who doesn’t get his fix must make a Vigor roll every 24 hours he goes without or take a level of Fatigue
+Once every 24 hours, a Healing roll with some sort of appropriate medicine removes one level of Fatigue for four hours. After that the Fatigue returns and can only be recovered with the addicting substance.",Major or Minor,,
+Hindrance,Loyal,SWADE Core Rules,25,"This stalwart defender risks her life for her friends without hesitation. Some Loyal heroes may not act that way, but are the first to come to their friends’ rescue when they’re threatened.",Minor,,
+Hindrance,Stubborn,SWADE Core Rules,27,Stubborn individuals always want their way and never admit they’re wrong. Even when it’s painfully obvious they’ve made a mistake they try to justify it with half-truths and rationalizations.,Minor,,
+Hindrance,Impulsive,SWADE Core Rules,25,The daredevil almost always leaps before he looks. He rarely thinks things through before taking action.,Major,,
+Hindrance,Ruthless,SWADE Core Rules,26,"The  fanatic  will  do  most  anything  to  accomplish her goals. As a Major Hindrance, he harms anyone and everyone who gets in her  way.  As  a  Minor  Hindrance,  he  stops  short  of  true  harm  to  anyone  except  those  who directly oppose her.",Minor,,
+Hindrance,Mean,SWADE Core Rules,25,"This   curmudgeon   is   ill-tempered   and   disagreeable. He has trouble doing anything kind  for  anyone  else,  must  be  paid  for  his  troubles, and doesn’t accept awards or favors graciously. Besides the obvious roleplaying issues,  Mean  characters  subtract  1  from  Persuasion rolls.",Minor,,
+Hindrance,Arrogant,SWADE Core Rules,22,"Your hero doesn’t think he’s the best—he knows  he  is.  Whether  it’s  swordsmanship,  kung fu, or painting, few compare to his skills and he flaunts it every chance he gets
+Winning  isn’t  enough  for  this  champion.  He  wants  to  dominate  his  opponent  and  prove there’s no one better. He’s the kind of fighter who disarms an opponent in a duel just to pick the sword up and hand it back with a smirk. Arrogant individuals look for the greatest threat in battle, hacking their way through lesser minions only because they’re in the way.",Major,,
+Hindrance,Cyber Psychosis,Guille Interface Zero 3.0 Homebrew,0,"Any time a character whose Strain Used exceeds their Strain Limit rolls a Critical Failure on any Trait roll, they immediately enter a state of Cybernetic Berserk Fury.
+Effects of the Fury:
+- Stat Boosts: The character gains +2 Toughness and ignores up to 2 points of Wound penalties.
+- Targeting & Restraint: The character loses all tactical restraint and threat perception. They must immediately attack the nearest biological or mechanical target within movement or weapon range, regardless of allegiance.
+- Neural Degradation: At the end of 2 consecutive rounds in Fury, the character gains a level of Fatigue. 2 rounds later, they become Exhausted. 2 more rounds, and they become Incapacitated (unconscious from total system burnout).
+- Snapping Out: At the start of their turn, the character may make a Smarts -2 roll as a free action. Success immediately ends the Fury state (retaining any Fatigue incurred).
+Addiction & Suppression:
+- Once a character's Cybernetic Berserk Fury is triggered for the first time, their neural pathways are permanently destabilized.
+- Without active suppressants in their system, a cyberpsycho character must pass a Smarts -2 roll every 1 hour (or immediately following a high-stress trauma event) to avoid re-entering Cybernetic Berserk Fury.
+- Injecting neuro-blocking chemtech pauses this 1-hour clock for the duration of the dose. Once the dose wears off, the 1-hour countdown resumes.
+Removal:
+- The Cyberpsychosis Hindrance cannot be removed through Advancements. The only way to cure it is to have a qualified medical professional/biohacker surgically remove installed cyberware/bioware until the character's Strain Used falls back within their Strain Limit. Removing 'ware carries the same surgical Vigor roll risks and penalties as installing it.",Major,,
+Hindrance,Bad Luck,SWADE Core Rules,22,Your hero is a little less lucky than most. He gets  one  less  Benny  per  game  session  than  normal.  A  character  cannot  have  both  Bad  Luck and the Luck Edge.,Major,,
+Hindrance,Can't swim,SWADE Core Rules,23,"Most people in the 21st century can swim  thanks  to  swimming  pools,  easy  travel  to  lakes  and  beaches,  or  educational efforts. Historically, how-ever, those who weren’t raised around a temperate body of water could not.
+Characters  with  this  Hindrance  suffer a −2 penalty to the Athletics skill when swimming and each inch moved in water costs 3′′ of Pace. See Movement  (page  92)  for  more  details  and  Drowning  (page  126).",Minor,,
+Hindrance,Curious,SWADE Core Rules,23,"It  killed  the  cat,  and  it  might  kill  your  warrior  as  well.  Curious  characters  have  to  check  out  everything  and  always  want  to  know  what’s  behind  a  potential  mystery or secret.",Major,,
+Hindrance,Driven,SWADE Core Rules,24,"A  vow  is  a  commitment  to  others.  Driven  characters want something for themselves. It may be to protect the realm, become a deco-rated officer, prove you’re the best gladiator in Rome, or the best pilot in the galactic fleet.
+The Minor version shapes the character and pushes his decisions but either happens rarely or is fairly harmless. As a Major Hindrance it’s  an  overriding  desire  that  comes  up  frequently or causes peril for the heroine and those around her.",Minor or Major,,
+Hindrance,Delusional,SWADE Core Rules,23,"Your hero believes something that    is    considered    quite    strange by everyone else. Minor Delusions  are  harmless  or  the  character generally keeps it to himself (the  government  puts  sedatives  in  soft drinks, dogs can talk, we’re all just characters in some bizarre game, etc.).
+With a Major Delusion, he expresses his  view  on  the  situation  frequently  and it can occasionally lead to danger (the  government  is  run  by  aliens,  hospitals are deadly, I’m allergic to armor, zombies are my friends).",Minor or Major,,
+Hindrance,Phobia,SWADE Core Rules,26,"Phobias  are  overwhelming  and  irrational  fears that plague a hero’s psyche.
+Whenever a character is in the presence of his  phobia  (GM’s  call,  but  generally  sight),  he subtracts 1 from all his Trait rolls if it’s a Minor Hindrance, and 2 if it’s Major.
+Phobias shouldn’t be too obvious; everyone should be afraid of vampires, for example, so it’s not a phobia, it’s common sense. Instead, the phobia usually centers on some random element the mind associates with the event. Remember, phobias are irrational fears.",Minor or Major,,
+Hindrance,Secret,SWADE Core Rules,26,"Your hero has a secret he keeps to protect herself or others. As a Minor Hindrance, the secret is troublesome but not life-threatening.
+The Major version would cause severe problems  if  discovered.  If  it  ever  becomes  public  knowledge,  he  should  trade  it  for  Enemy,  Shamed,  Wanted,  or  another  appropriate Hindrance approved by the GM.",Minor or Major,,
+Hindrance,Suspicious,SWADE Core Rules,28,"Your character is suspicious of everyone. As a Minor Hindrance, his paranoia causes frequent trust issues. He might demand full payment  before  doing  a  task,  want  every  agreement  in  writing,  or  believe  even  his  friends are out to get him.
+As a Major Hindrance, Support rolls to aid the distrustful individual are made at −2.",Minor or Major,,
+Hindrance,Enemy,SWADE Core Rules,24,"Someone out there hates the character and wants him ruined, locked away, or dead. The value of the Hindrance depends on how powerful the enemy is and how often he might show up. A Minor Enemy might be a lone gunslinger out for vengeance or a betrayed brotherhood that’s deadly but appears rarely. A Major Enemy might represent powerful authorities, a band of outlaws, or a single very powerful and relentless rival.
+If the enemy is one day defeated, the GM should gradually work in a replacement, or the hero may buy off the Hindrance by sacrificing an Advance.",Minor or Major,,
+Hindrance,Big Mouth,SWADE Core Rules,23,"Loose lips sink ships, the saying goes. This hero’s mouth could drown an armada.
+The blabbermouth can’t keep a secret very well. He reveals plans and gives away things best kept among friends, usually at the worst possible times.",Minor,,
+Hindrance,Clueless,SWADE Core Rules,23,"Your hero doesn’t pay much attention to the world around him and can’t seem to find a haystack in a small pile of needles.
+He suffers a −1 penalty to Common Knowledge and Notice rolls.",Major,,
+Hindrance,Code of Honor,SWADE Core Rules,23,"Honor is very important to your character. He keeps his word, doesn’t abuse or kill prisoners, and generally tries to operate within his world’s particular notion of proper gentlemanly or ladylike behavior.",Major,,
+Hindrance,Death Wish,SWADE Core Rules,23,"Having a death wish doesn’t mean your adventurer is suicidal—he might just think his life is worth less than some noble but clearly deadly goal.
+Those with a Death Wish don’t throw their lives away for no reason, but when there’s a chance to complete a goal they do anything—and take any risk—to achieve it.",Minor,,
+Hindrance,Elderly,SWADE Core Rules,24,"Your adventurer is getting on in years, but he’s not quite ready for the nursing home yet. His Pace is reduced by 1, and he subtracts 1 from running rolls (minimum 1). He also suffers a −1 penalty to Agility, Strength (including damage), and Vigor rolls, but  not linked skills.
+On the plus side, the wisdom of his years grants the hero 5 extra skill points which may be used for any skills linked to Smarts",Major,,
+Hindrance,Greedy,SWADE Core Rules,24,"A miser measures worth in material possessions or wealth. If a Minor Hindrance, he argues bitterly for more than his fair share of any loot or reward the party might come across. As a Major Hindrance, he fights over anything he considers unfair, and may even kill for it if he feels slighted or covets something he cannot have.",Minor or Major,,
+Hindrance,Nano-Infection,Interface Zero 3.0 - The Players Guide to 2095,40,"Your character was infected with a nanovirus and ended up on the short end of the mutation stick. As a Minor Hindrance, choose one Skill, the Wild Die associated with that skill is one step lower (typically a d4). As a Major Hindrance select one attribute. The Wild Die for that Attribute is treated as one step lower (typically a d4).
+Nano-Infection can be taken multiple times (if a character got totally screwed by some nanovirus), although the benefits gained for taking Hindrances are still limited as normal.",Minor or Major,,
+Hindrance,Outsider,SWADE Core Rules,26,"In a society made up of only a few types of people, your hero isn’t one of them. A Native American in a Western town, an alien in a scifi game of human marines, or a half-orc in a party of elves, dwarves, and humans are all examples. Locals are likely to raise prices on her, ignore pleas for help, and generally treat her as lower class.
+Outsiders subtract 2 from Persuasion rolls made to influence those who aren’t her own kind. The Major version also means the character has few or no legal rights in the main campaign area. he might be a different species among xenophobes, the civilization may be cruel and unenlightened toward strangers, or he might even be an artificial intelligence whose sapience isn’t acknowledged by the law.",Minor or Major,,
+Hindrance,Pacifist,SWADE Core Rules,26,"Your hero absolutely despises violence. Minor pacifism means he only fights when given no other choice and never allows the killing of prisoners or other defenseless victims.
+Major Pacifists won’t fight living characters under any circumstances. They may defend themselves, but won’t do anything to permanently harm sapient, living creatures. They may use nonlethal methods (see page 104), but only in self-defense or the defense of others.",Minor or Major,,
+Hindrance,Poverty,SWADE Core Rules,26,"It’s said a fool and his money are soon parted. Your hero is one of them. He starts with half the usual money for your setting and just can’t seem to hang on to funds acquired after play begins. In general, the player halves his total funds every game week.",Minor,,
+Hindrance,Quirk,SWADE Core Rules,26,"This individual has some minor foible that is usually humorous but can occasionally cause him real trouble. A swashbuckler may always try to slash his initials on his foes, a dwarf may brag constantly about his culture, or a snobby débutante might not eat, drink, or socialize with the lower class, for example.",Minor,,
+Hindrance,Thin Skinned,SWADE Core Rules,28,"Personal attacks really get under this individual’s skin. As a Minor Hindrance, he subtracts 2 when resisting Taunt attacks. As a Major, he subtracts 4.",Minor or Major,,
+Hindrance,Ugly,SWADE Core Rules,28,"Attractive people get all the breaks. This unfortunate individual isn’t one of them. He subtracts 1 from his Persuasion rolls, or 2 if taken as a Major Hindrance.",Minor or Major,,
+Special Ability,Infravision,SWADE Core Rules,177,"Nocturnal beasts often see in the infrared spectrum — meaning  they  can  “see”  by  detecting  heat.  Creatures  with  Infravision  halve  penalties  for  bad  lighting  when  attacking   targets   that   radiate   warmth   (including invisible foes).
+Clever characters may figure out ways to mask their heat from such creatures. Smearing cold mud over one’s body or wearing special heat-filtering suits generally obscures the target from those with Infravision.
+Humanoids with Infravision usually have normal sight as well.",,,
+Special Ability,Low Light Vision,SWADE Core Rules,177,Low  Light  Vision  ignores  penalties  for  Dim  and  Dark  Illumination  (but  not  Pitch  Darkness).,,,
+Cybertech,Kenta Cyber Dynamics Dreadnaught Cyber System,Interface Zero 3.0 - The Players Guide to 2095,71,"Kenta  Cyber  Dynamics  has  created  the  ultimate   in   unassailable,   unstoppable,   unbelievable   combat   defense   Cybertech   systems. Introducing the Dreadnought!™ The recipient’s bones are sheathed in titanium, a subdermal layer of nano-weave material is inserted and the respiratory system is  augmented  and  improved  with  increased  performance  as  well  as  filtration  for  airborne  contaminants.  As  always,  service  members  are  pre-qualified   for   long   term   financing.    Thank    you    for    your service!
+Base Cost: $4,200
+Base Strain: 7 
+Abilities:  Increase  current  and  maximum  Vigor  one  die  type,  gain +2 Armor (stacks with worn armors),   increase   Toughness   by  two,  and  filters  (+4  to  resist  airborne  toxins,  diseases,  and  poisons).
+Quirks:  The  system  is  Hackable  and can be deactivated using the Disable Device Command. Deactivation turns off the filtration system, and the increased Vigor die but does not remove the toughness or armor.",,4200,7
+Cybertech,ACME LMS LTD. Systems Support Computer,Interface Zero 3.0 - The Players Guide to 2095,68,"Acme LMS LTD presents the Systems Support Computer.  A  micro  AI,  attached  at  the  L1  vertebrae,  that  assists  the  user  in  hacking  and  counter  hacking  tasks.  Against  this  system,  Network Administrators simply have no recourse.
+Base Cost: $2,400
+Base Strain: 4
+Abilities: User gains +2 to Hacking Skill and one free Reroll for Hacking Skill.
+Quirks:  The  system  is  Hackable  and  may  be  deactivated using the Disable Device Command.",,2400,4
+Biotech,Chimera Synaptic Anti-Catalyst,Interface Zero 3.0 - The Players Guide to 2095,65,"With  a  Synaptic  Anti  CatalystTM,  a  person’s  mind  functions  at  much  higher  levels  autonomously  improving  mental  processing  of  one or more skills.
+Base Cost: $2,000
+Base Strain: 4
+Abilities:  Grants  a  +2  bonus  to  one  skill,  also  grants a reroll for one skill. This may be the same or a different skill, but both must be chosen at the time of augmentation.
+Quirks: Improving the mind may cause a person to overestimate their self-importance causing the Arrogant  Hindrance.  Biotech  cannot  improve  “knowledge type” skills.",,2000,4
+Cybertech,Berger-Suisse Ocular Implant,Interface Zero 3.0 - The Players Guide to 2095,70,"Having  built  a  reputation  for  quality  on  their  cochlear  implants  (rendered  broadly  obsolete  by  Biotech  and  Genetech  options),  Berger-Suisse is one of the most respected sources for ocular replacements. The cameras can detect a  wide  range  of  lighting  conditions,  stimulating  the  optic  nerves  directly  to  minimize  implant  recovery time.
+Base Cost: $1,200
+Base Strain: 2
+Abilities:  The  Berger-Suisse  Ocular  Implant  grants  the  Infravision  and  Low  Light  Vision  abilities.
+Quirks:  The  implant  is  Hackable  and  can  be  deactivated using the Disable Device Command.",,1200,2
+Cybertech,ACME LMS LTD. Knowcomp,Interface Zero 3.0 - The Players Guide to 2095,68,"While  numerous  corporations  now  produce  similar   modules,   Acme   LMS   Ltd.   still   holds  the  trademark  for  the  Knowcomp™,  the  ubiquitous learning module that can turn anyone into  an  expert  instantly.  Proudly  manufacturing  an  array  of  TAP-compatible  microcomputers,  Acme  LMS  Ltd.  provides  Knowcomps™  offering  everything  from  the  most  obscure  of  academic  subjects to the deadliest of martial arts.
+The  Knowcomp™  effectively  overrides  a  user’s  own expertise with a skill, replacing it rather than adding  to  it.  Knowcomps™  do  not  stack  with  a  character’s own rating in a skill. 
+Base Cost: $1,200
+Base Strain: 2
+Abilities:  The  core  Knowcomp™  product  is  a  marble-sized  microcomputer  that  jacks  into  a  user’s external TAP ports, providing a d6 rating in a single skill. Larger or dual-linked Knowcomps™ may provide specializations, and even bonuses to the skill.
+Quirks:  A  Knowcomp™  is  a  Tiny  target  (−6  to  attack)  but  can  be  unplugged  with  a  Touch  Attack. It is also Hackable and can be deactivated using the Disable Device Command.",,1200,2
+Cybertech,Kenta Cyber Dynamics Shikanoko Visor,Interface Zero 3.0 - The Players Guide to 2095,74,"Issued  to  A-Division  tactical  units  in  Japan,  the  Shikanoko  Visor  gifts  the  recipient  with  panoramic  280°  binocular  vision.  The  wide,  curving  visor  fits  over  the  eye  sockets  like  wraparound sunglasses, with two outlets linking to  the  optic  nerves.  As  always,  service  members  are  pre-qualified  for  long  term  financing.  Thank  you for your service!
+Base Cost: $1,800
+Base Strain: 3
+Abilities:  The  Shikanoko  Visor’s  increased  line  of sight provides one die type to Notice and the Danger Sense Edge.
+Quirks:  Removing  the  visor  leaves  the  wearer  blind. The implant can also be hacked using the Disable Device command.",,1800,3
+Cybertech,Benkei Bionics Synthetic Subdermal Sarashi lv3,Interface Zero 3.0 - The Players Guide to 2095,70,"This  subdermal  nano-weave  anchors  to  the  spine  and  wraps  around  the  torso  into  a  shock-absorbing  padding  that  protects  vital  organs  from  stabbing  and  gunshots.  Infamously  nicknamed  the  “Buddha  Belly,”  the  Benkei  BSS  Sarashi  is  popular  among  yakuza  and  others  who  don’t  want  to  reveal  how  augmented  they  really are.
+Base Cost: $600 per level.
+Base Strain: 1 per level, up to three levels.
+Abilities: Provides +2 Armor but only covers the torso. This stacks with worn armor.
+Quirks: Reduces Pace by 1.",,600,3
+Cybertech,Act of God Armaments Integrated Battle Information System (IBIS) Rank 2,Interface Zero 3.0 - The Players Guide to 2095,69,"Act  of  God  Armaments  is  pleased  to  bring  you  our  newest  version  of  the  Integrated  Battle  Information  System!  IBIS  2.0  upgrades  the  old  interface  and  adds  motion  sensing  nodes to give you full three dimensional tactical awareness to improve your chances of survival—especially  when  surrounded  by  enemies.  Don’t  wait!  Upgrade  today  and  never  be  caught  off  guard again!
+Base Cost: $3,000
+Base Strain: 5
+Abilities:  The  second  Rank  of  the  Integrated  Battle Information System upgrades the existing IBIS  to  include  the  Block  Edge  in  addition  to  the  Gun  Fu!  Edge.  As  with  the  Rank  1  version,  characters can take upgraded versions of Gun Fu! by  spending  more  Strain  but  the  monetary  cost  does not change.
+Quirks:  The  IBIS  is  Hackable  and  can  be  deactivated using the Disable Device Command.",,3000,5
+Cybertech,Gxarha Izibhamu Smartgun System,Interface Zero 3.0 - The Players Guide to 2095,70,"Several manufacturers offer smartgun systems, but only the African Central Union’s Gxarha Izibhamu offers the smartgun endorsed by more militaries  across  the  solar  system.  Highly  rated  by independent certification boards, the Gxarha Izibhamu  Smartgun  System  keeps  the  peace  on  Earth and beyond!
+Base Cost: $1,200
+Base Strain: 2
+Abilities:  The  Smartgun  System  is  a  two-part  interactive  hardware  and  software  upgrade  that  wirelessly  links  a  user’s  TAP  to  a  calibrator  attached  to  a  designated  firearm.  The  targeting  assistance grants an automatic Reroll on Shooting rolls  using  that  gun  (see  Rerolls  in  Savage Worlds). Additional weapons can be linked to the Smartgun System for $300 each, for the hardware sensors and additional tracking software.
+Quirks:  The  smartgun  system  is  Hackable  and  can  be  deactivated  using  the  Disable  Device  Command.",,1500,2
+Cybertech,Chimera Industries GNOSys Augmentation,Interface Zero 3.0 - The Players Guide to 2095,65,"This  course  of  Amazonian  nootropics  and  electrical  neuro-stimulation  upgrades  the  function  of  the  pre-frontal  cortex  and  other  important  centers  of  the  brain,  increasing  base  intelligence  and  learning  capacity.  Promoted  heavily in-house to employees, CHIMERA stands confidently behind the results of GNOSys™.
+Base Cost: $3000
+Base Strain: 6
+Abilities: Increases Smarts by three die types.
+Quirks: Despite what CHIMERA would have both customers and employees believe, intelligence augmentation frequently leads to unpredictable side effects. Recipients of the GNOSys™ augmentation potentially gain a Major Hindrance  from  the  following  list:  Delusional,  Jealous, Phobia, Ruthless, and Suspicious.",,3000,6
+Cybertech,Monkey Mask Inc. Gecko Hands,Interface Zero 3.0 - The Players Guide to 2095,74,"These carbon nanotube biomimetic replacement limbs unfold on mental command into synthetic setae, allowing human-sized users to adhere to horizontal and vertical surfaces using van der Waals forces. Though higher-profile corporations manufacture similar products, gray market customers swear by Monkey Mask’s Gecko Hands.
+Base Cost: $600
+Base Strain: 1
+Abilities: Gecko Hands allow users to crawl on vertical surfaces at their full Pace or inverted surfaces at half Pace. While most commonly sold as hands, Gecko Feet may also be purchased; such feet require walking barefoot, though, and are less popular.
+Quirks: Gecko Hands require an action to activate. When not in use, the nanotube setae curl up into near approximations of normal human hands. These hands have no fingerprints and tend toward a “sausage fingers” look. Like most “hand” or “foot” Cyberware, Gecko Hands require extensive reconstruction of the entire limb. Gecko Hands are Hackable and can be deactivated using the Disable Device Command.",,600,1
+Cybertech,Bastion Cybertech FloJo Cyber Legs,Interface Zero 3.0 - The Players Guide to 2095,69,"Need to run fast? Celebrate the memory of the longest 100m speed record holder with the FloJo Cyber Legs.
+Base Cost: $2,400
+Base Strain: 4
+Abilities: Increases Pace by four and Running Die by two steps.
+Quirk: System is Hackable. You suffer a −2 Penalty to Fatigue rolls for extended running.",,2400,4
+Cybertech,Better-U Self-Actualization Package,Interface Zero 3.0 - The Players Guide to 2095,63,"Your parents were too poor to have you tweaked in the womb, but you’ve overcome the handicap of being born baseline and established a successful career. Don’t you owe yourself a better you? It’s better than 2.0. It’s 2-point-YOU!
+Better-U is a rising star in RUS Biotech, contracting with various corporate health insurance providers and then conducting predatory “advisory seminars” with junior executives. In addition to the kickbacks they pay to their corporate partners, Better-U sells placebo “re-enhancement examinations” to patients on a biannual basis.
+Base Cost: $3,000
+Base Strain: 6
+Abilities: Discreet CRISPR editing and cosmetic enhancements add one die type to Agility and Vigor as well as the Attractive Edge. Additional enhancements can be added for extra price, but the basic Self-Actualization Package is usually enough to satisfy most corporate drones.
+Quirks: Self-Actualization Packages can suppress caution responses, causing the recipient to become Overconfident.",,,
+Cybertech,Yanjing Generic Cybereyes ,Interface Zero 3.0 - The Players Guide to 2095,19,"Street-Grade Cybereyes
+Base Cost: $500
+Base Strain: 1
+Abilities: Low Light Vision",,500,1
+Biotech,Streetware Grade Reflex Boost ,Interface Zero 3.0 - The Players Guide to 2095,19,"Street-Grade biotech
+Base Cost: $500
+Base Strain: 1
+Abilities: Increases the Agility attribute die type by 1",,500,1
+Cybertech,Prototype Telcom Porcelain Skin,Guille Interface Zero 3.0 Homebrew,0,"Prototype cyberware from Telcom United Services. It replaces the full skin of a person.
+Base Strain: 3
+Abilities: Counters the effect of the Nano-Infection Hindrance
+Quirk: As a prototype, Telcom must tweak it daily, to counter effects such as phantom pain or even paralysis.",,0,3
+Cybertech,Hublot King Gold Persuader Wrist,Guille Interface Zero 3.0 Homebrew,0,"Hublot’s strength resides in its very clear identity - the art of fusion - this unique ability to create timepieces which combine tradition and innovation.
+Base Cost: $25,000
+Base Strain: 1
+Abilities: Increases Persuasion skill Die by one step.",,25000,1
+Cybertech,Van Cleef Vintage Alhambra Allure Neck,Guille Interface Zero 3.0 Homebrew,0,"Continuing a legacy of over 50 years of creativity, the Maison reveals five Vintage Alhambra and Magic Alhambra creations in translucent enamel. Within their gold-beaded contours, the motifs catch the eye in a distinctive shade of pink, chosen by Van Cleef & Arpels to perpetuate the collection’s polychrome identity.
+Base Cost: $10,000
+Base Strain: 1
+Abilities: Increases Persuasion skill Die by one step.",,10000,1
+Cybertech,Chanel Entice Visor,Guille Interface Zero 3.0 Homebrew,0,"Hublot’s strength resides in its very clear identity - the art of fusion - this unique ability to create timepieces which combine tradition and innovation.
+Base Cost: $1,500
+Base Strain: 1
+Abilities: Increases Notice skill Die by one step.",,1500,1
+Cybertech,Fortitude Generic Street Augmentation ,Guille Interface Zero 3.0 Homebrew,0,"Cheap Street Augmentation
+Base Cost: $500
+Base Strain: 1
+Abilities: Increase Strength attribute Die by one step.
+Quirks: Strength rolls have a -1 modifier.",,500,1
+Cybertech,Velocity Generic Street Augmentation ,Guille Interface Zero 3.0 Homebrew,0,"Cheap Street Augmentation
+Base Cost: $500
+Base Strain: 1
+Abilities: Increase Agility attribute Die by one step.
+Quirks: Agility rolls have a -1 modifier.",,500,1
+Cybertech,Spleen Generic Street Augmentation ,Guille Interface Zero 3.0 Homebrew,0,"Cheap Street Augmentation
+Base Cost: $500
+Base Strain: 1
+Abilities: Increase Vigor attribute Die by one step.
+Quirks: Vigor rolls have a -1 modifier.",,500,1
+Cybertech,The Boss Generic Street Augmentation ,Guille Interface Zero 3.0 Homebrew,0,"Cheap Street Augmentation
+Base Cost: $500
+Base Strain: 1
+Abilities: Persuasion rolls have a +1 modifier.
+Quirks: Intimidation rolls have a -1 modifier.",,500,1
+Biotech,Canine Cybereye,Guille Interface Zero 3.0 Homebrew,0,"Oshima Biolab biodog cyberware
+Base Strain: 1
+Abilities: Provides the Low Light Vision Special Ability",,0,1
+Natural Weapon,Claws,SWADE Core Rules,104,"Creatures with natural weapons such as fangs, claws, or horns may attack with any or all of them using their Fighting skill. Damage is stated for character races and beasts in their various descriptions.
+Creatures with natural weapons are always considered armed. This means they aren’t Unarmed Defenders and foes fighting with Two Weapons gain no advantage against them (see page 108).
+CLAWS: +2 to Athletics (climbing) rolls on any rough or soft surface (not sheer steel, glass, etc.).",,,
+Natural Weapon,Horns,SWADE Core Rules,104,"Creatures with natural weapons such as fangs, claws, or horns may attack with any or all of them using their Fighting skill. Damage is stated for character races and beasts in their various descriptions.
+Creatures with natural weapons are always considered armed. This means they aren’t Unarmed Defenders and foes fighting with Two Weapons gain no advantage against them (see page 108).
+HORNS: Add +4 damage at the end of one Fighting action in which it Runs, moves at least 5″(10 yards), and successfully hits with its horns.",,,
+Natural Weapon,Bite,SWADE Core Rules,104,"Creatures with natural weapons such as fangs, claws, or horns may attack with any or all of them using their Fighting skill. Damage is stated for character races and beasts in their various descriptions.
+Creatures with natural weapons are always considered armed. This means they aren’t Unarmed Defenders and foes fighting with Two Weapons gain no advantage against them (see page 108).
+ BITE: The creature may bite a target it’s grappled (most attackers can only crush their prey, see Grappling, page 101).",,,
+Special Ability,Aquatic,SWADE Core Rules,175,The creature is native to the water. It is a natural swimmer and cannot drown. Its Pace in water is specified after the Aquatic ability.,,,
+Special Ability,Cold Resistance,Interface Zero 3.0 - The Players Guide to 2095,34,A thick insulating layer provides a +4 bonus to resist cold environments. Damage from cold is reduced by 4.,,,
+Special Ability,Leaper,Interface Zero 3.0 - The Players Guide to 2095,34,Jumping distances are doubled. He adds +4 to damage when leaping as part of a Wild Attack instead of the usual +2 (unless in a closed or confined space where he cannot leap horizontally or vertically—GM’s call).,,,
+Special Ability,Semi-Aquatic,Interface Zero 3.0 - The Players Guide to 2095,34,A delphine hybrid can hold his breath for 15 minutes before checking for drowning.,,,
+Special Ability,True Regeneration,Interface Zero 3.0 - The Players Guide to 2095,34,Reptilia make Natural Healing rolls once per day and may recover from permanent injuries after all Wounds are regenerated. Treat each Injury as an additional Wound for purposes of recovery (reptilia may try once per week).,,,
+Derived Statistic,Armor,SWADE Core Rules,65,"This is the amount of Armor provided by the equipment, listed in parentheses beside the wearer’s total Toughness. Unless an attacker states otherwise, hits are always directed at the victim’s torso.
+Worn Armor stacks with natural Armor (such as scaly skin) at its full value.
+Worn Armor also stacks with one other layer. The lesser armor adds half its value (rounded down) to the total and increases the heavier armor’s Minimum Strength penalty a die type. Wearing a chain shirt (+3) beneath plate mail (+4), adds +1 to the wearer’s armor value, for a total of +5, and increases the Minimum Strength requirement to d12.",,,
+Special Ability,Armor Plating,Interface Zero 3.0 - The Players Guide to 2095,30,"Heavy composite plating grants Armor +6 and stacks with worn armor. Cyborgs are built to be tanks; as such, they begin with the maximum armor that can be added to the frame. They can never upgrade this stat with augmentations of any type. ",,,
+Special Ability,Hardy,SWADE Core Rules,177,"Very tough or determined creatures do not fall from lesser injuries, no matter how many they suffer. A decisive blow is needed to put one of these tenacious creatures down.
+If the beast is Shaken, another Shaken result doesn’t cause a Wound.",,,
+Special Ability,No Vital Organs,Interface Zero 3.0 - The Players Guide to 2095,30,Machinery replaces a cyborg’s internal organs. Redundant systems mean the cyborg takes no additional damage from Called Shots.,,,
+Special Ability,Head Shot Weakness,Interface Zero 3.0 - The Players Guide to 2095,30,"The organic brain is a weak point, and attacks to the head inflict +4 damage.",,,
+Special Ability,Construct,Interface Zero 3.0 - The Players Guide to 2095,27,"Androids add +2 to recover from being Shaken, don’t breathe, ignore one level of Wound modifiers, and are immune to poison and disease. Constructs cannot heal naturally. Healing one requires the Repair skill, which takes one hour per current Wound level per attempt and is not limited to the “Golden Hour.”",,,
+Special Ability,Dependency (Energy),Interface Zero 3.0 - The Players Guide to 2095,27,"One hour of electrical charging per 24 hours. Without the required power, a character becomes Fatigued each day until Incapacitated. A day after that, they perish. Each hour spent recovering with the appropriate substance restores a level of Fatigue.",,,
+Special Ability,Environmental Weakness (Electricity),Interface Zero 3.0 - The Players Guide to 2095,27,"−4 to resist electrical hazards, +4 damage from electrical attacks including EMP.",,,

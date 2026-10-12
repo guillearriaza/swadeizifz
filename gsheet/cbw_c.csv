@@ -1,0 +1,34 @@
+character_id,ware,strain,target,cost,stacks,notes
+1,ACME LMS LTD. Systems Support Computer,4,,,,
+1,Chimera Synaptic Anti-Catalyst,4,Driving,,,
+2,Kenta Cyber Dynamics Dreadnaught Cyber System,7,,,,
+3,Act of God Armaments Integrated Battle Information System (IBIS) Rank 2,5,,,,
+3,Gxarha Izibhamu Smartgun System,2,Telcom Rhino Deadeye,,,
+3,Gxarha Izibhamu Smartgun System,0,AGA Rhino Heavy Pistol (.50),,,
+4,Berger-Suisse Ocular Implant,2,,,,
+4,Chimera Synaptic Anti-Catalyst,4,Healing,,,
+4,ACME LMS LTD. Knowcomp,2,Shooting,,,
+5,Kenta Cyber Dynamics Shikanoko Visor,3,,,,
+5,Benkei Bionics Synthetic Subdermal Sarashi lv3,3,,,,
+6,Hublot King Gold Persuader Wrist,1,,,,Homebrew
+6,Van Cleef Vintage Alhambra Allure Neck,1,,,,Homebrew
+6,Chanel Entice Visor,1,,,,Homebrew
+7,Chimera Industries GNOSys Augmentation,6,,,,
+7,Berger-Suisse Ocular Implant,2,,,,
+7,Chimera Synaptic Anti-Catalyst,4,Science,,,
+8,Kenta Cyber Dynamics Shikanoko Visor,3,,,,
+8,Prototype Telcom Porcelain Skin,3,,,,Homebrew
+12,Better-U Self-Actualization Package,6,,,,Raine owes 3 years of work to the Botran family for this cyberware
+12,Kenta Cyber Dynamics Dreadnaught Cyber System,7,,,,Raine owes 3 years of work to the Botran family for this cyberware
+14,Fortitude Generic Street Augmentation ,1,,,,
+14,Velocity Generic Street Augmentation ,1,,,,
+14,Spleen Generic Street Augmentation ,1,,,,
+14,The Boss Generic Street Augmentation ,1,,,,
+14,Streetware Grade Reflex Boost ,1,,,,
+14,Yanjing Generic Cybereyes ,1,,,,
+15,Fortitude Generic Street Augmentation ,1,,,,
+15,Velocity Generic Street Augmentation ,1,,,,
+15,Spleen Generic Street Augmentation ,1,,,,
+16,Streetware Grade Reflex Boost ,1,,,,"Blue Plater Origin, Agi dice roll +1"
+16,Yanjing Generic Cybereyes ,1,,,,"Blue Plater Origin, Low Light Vision"
+20,Canine Cybereye,1,,,,"Homebrew, Low Light Vision"
